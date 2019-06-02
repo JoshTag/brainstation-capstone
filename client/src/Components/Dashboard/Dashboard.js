@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Dashboard.scss';
-import logo from '../../Assets/Logo/logo_transparent.png';
+import logo from '../../Assets/Logo/Logo.png';
 import { Link } from 'react-router-dom';
 
 export class Dashboard extends Component {

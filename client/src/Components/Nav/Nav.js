@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Nav.scss';
-import logo from '../../Assets/Logo/logo_transparent.png'
+import logo from '../../Assets/Logo/Logo.png'
 
 export class Nav extends Component {
     render() {
