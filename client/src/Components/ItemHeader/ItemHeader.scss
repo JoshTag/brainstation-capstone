@@ -1,0 +1,40 @@
+@import '../../Styles/scss/Master';
+
+.itemSearch{
+    padding: 60px 24px 0;
+    width: 80vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    &__header {
+        font-size: 34px;
+    }
+
+    &__searchContainer {
+
+        &__search {
+            height: 40px;
+            width: 260px;
+            background-image: url('../../Assets/Images/Icon-search.svg');
+            background-position: 10px 7px;
+            background-repeat: no-repeat;
+            padding: 0 0 0 40px;
+            border-radius: 20px;
+            margin-right: 16px;
+        }
+
+        &__btn {
+            height: 40px;
+            width: 120px;
+            font-family: $font-primary;
+            font-size: 18px;
+            color: white;
+            border: none;
+            padding: 0;
+            background-color: $color-grey;
+            border-radius: 20px;
+        }
+    }
+}

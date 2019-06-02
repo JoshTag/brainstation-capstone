@@ -1,5 +1,6 @@
 import React from 'react';
 import Main from '../Pages/Main/Main'
+import Items from '../Pages/Items/Items'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'; 
 
 class App extends React.Component {
@@ -7,8 +8,8 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact to='/' component={Main} />
-          {/* <Route path="/items/:id" component={Item} /> */}
+          <Route exact path='/' component={Main} />
+          <Route path="/items" component={Items} />
         </Switch>
       </BrowserRouter>
     );

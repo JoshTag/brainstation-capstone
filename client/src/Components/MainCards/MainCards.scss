@@ -1,0 +1,33 @@
+@import '../../Styles/scss/Master';
+.cardContainer {
+    margin-top: 20px;
+    padding: 75px 180px 0;
+    height: 688px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background: #dddddd;
+
+    &__card {
+        height: 400px;
+        width: 300px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, .2);
+        box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+        background: $color-white;
+
+        &__title {
+            text-align: center;
+            color: $color-grey;
+        }
+
+        &__list {
+            list-style: none;
+            color: $color-grey;
+
+            li {
+                margin-bottom: 8px;
+            }
+        }
+    }
+}

@@ -45,7 +45,7 @@
             background-position: 10px 7px;
             background-repeat: no-repeat;
             padding: 0 0 0 40px;
-            border-radius: 40px;
+            border-radius: 20px;
             margin-right: 16px;
         }
 
@@ -58,7 +58,7 @@
             border: none;
             padding: 0;
             background-color: $color-grey;
-            border-radius: 40px;
+            border-radius: 20px;
         }
     }
 }
@@ -70,31 +70,4 @@
     width: 100%;
     height: 688px;
     top: 0px;
-}
-
-.cardContainer {
-    margin: 75px 180px 0;
-    height: 788px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-
-
-    &__card {
-        height: 400px;
-        width: 300px;
-        border-radius: 5px;
-        border: 1px solid rgba(0, 0, 0, .2);
-        box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
-
-        &__title {
-            text-align: center;
-            color: $color-grey;
-        }
-
-        &__list {
-            list-style: none;
-            color: $color-grey;
-        }
-    }
 }
