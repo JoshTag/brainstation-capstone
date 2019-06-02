@@ -21,7 +21,7 @@ export class Carousel extends Component {
                 sidesOpacity={.5}
                 sideSize={.1}
                 slidesToScroll={1}
-                slidesToShow={7}
+                slidesToShow={6}
                 scrollOnDevice={true}
                 autoCycle={true}
                 cycleInterval={1500}

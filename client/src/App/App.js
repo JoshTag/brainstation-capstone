@@ -5,9 +5,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Main />
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route exact to='/' component={Main} />
+          {/* <Route path="/items/:id" component={Item} /> */}
+        </Switch>
+      </BrowserRouter>
     );
   }
 }

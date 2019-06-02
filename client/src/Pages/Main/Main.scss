@@ -17,13 +17,13 @@
         align-items: center;
 
         &__headerContainer {
-            margin: 60px 0 100px;
+            margin: 50px 0 100px;
             text-align: center;
             z-index: 1000;
         }
 
         &__header {
-            font-family: $font-warcraft;
+            font-family: $font-primary;
             color: white;
             font-size: 77px;
         }
@@ -73,6 +73,28 @@
 }
 
 .cardContainer {
-    margin-top: 50px;
+    margin: 75px 180px 0;
     height: 788px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+
+    &__card {
+        height: 400px;
+        width: 300px;
+        border-radius: 5px;
+        border: 1px solid rgba(0, 0, 0, .2);
+        box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+
+        &__title {
+            text-align: center;
+            color: $color-grey;
+        }
+
+        &__list {
+            list-style: none;
+            color: $color-grey;
+        }
+    }
 }
