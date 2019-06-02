@@ -13,16 +13,19 @@
     }
 
     &__searchContainer {
+        height: 40px;
+        display: flex;
 
         &__search {
             height: 40px;
             width: 260px;
             background-image: url('../../Assets/Images/Icon-search.svg');
-            background-position: 10px 7px;
+            background-position: 14px 9px;
             background-repeat: no-repeat;
-            padding: 0 0 0 40px;
+            padding: 0 0 0 45px;
             border-radius: 20px;
             margin-right: 16px;
+            border: 1px solid $color-grey;
         }
 
         &__btn {

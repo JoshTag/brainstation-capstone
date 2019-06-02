@@ -13,19 +13,31 @@ export class Dashboard extends Component {
                 <h1 className="dashboard__header">Dashboard</h1>
                 <div className="dashboard__sectionContainer">
                     <h2 className="dashboard__title">Item Info</h2>
-                    <ul className="dashboard__list" >
-                        <li className="dashboard__list__items">Price History</li>
-                        <li className="dashboard__list__items">Quantity History</li>
-                        <li className="dashboard__list__items">Price Quantity Comparison</li>
+                    <ul className="dashboard__list btnList" >
+                        <button 
+                            className="dashboard__list__items btnList__btn" 
+                            onClick={this.props.price}>
+                                Price History
+                        </button>
+                        <button 
+                            className="dashboard__list__items btnList__btn" 
+                            onClick={this.props.quant}>
+                                Quantity History
+                        </button>
+                        <button 
+                            className="dashboard__list__items btnList__btn" 
+                            onClick={this.props.priceQuant}>
+                                Price Quantity Comparison
+                        </button>
                     </ul>
                 </div>
                 <div>
                     <h2 className="dashboard__title">Watch List</h2>
-                    <ul className="dashboard__list" >
-                        <li className="dashboard__list__items">Akunda's Bite</li>
-                        <li className="dashboard__list__items">Anchor Weed</li>
-                        <li className="dashboard__list__items">Goblin Glider Kit</li>
-                        <li className="dashboard__list__items">Monelite Ore</li>
+                    <ul className="dashboard__list btnList" >
+                        <button className="dashboard__list__items btnList__btn">Akunda's Bite</button>
+                        <button className="dashboard__list__items btnList__btn">Anchor Weed</button>
+                        <button className="dashboard__list__items btnList__btn">Goblin Glider Kit</button>
+                        <button className="dashboard__list__items btnList__btn">Monelite Ore</button>
                     </ul>
                 </div>
                 <div>
@@ -33,7 +45,7 @@ export class Dashboard extends Component {
                     <ul className="dashboard__list" >
                         <li className="dashboard__list__items">Home</li>
                         <li className="dashboard__list__items">¯\_(ツ)_/¯</li>
-                        <li className="dashboard__list__items">????</li>
+                        <li className="dashboard__list__items">Log Out</li>
                     </ul>
                 </div>
             </div>

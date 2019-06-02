@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import './MainCards.scss'
+import React, { Component } from 'react';
+import './MainCards.scss';
+import { Link } from 'react-router-dom';
 
 export class MainCards extends Component {
     render() {
@@ -44,7 +45,7 @@ export class MainCards extends Component {
                     WATCH LIST
                 </h3>
                 <ul className="cardContainer__card__list">
-                    <li>Akunda's Bite</li>
+                    <li><Link to='/items'>Akunda's Bite</Link></li>
                     <li>Anchor Weed</li>
                     <li>Goblin Glider Kit</li>
                     <li>Monelite Ore</li>
