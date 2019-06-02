@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import Nav from '../../Components/Nav/Nav'
+import Nav from '../../Components/Nav/Nav';
 import './Main.scss';
-import hero from '../../Assets/Images/graph.jpg'
+import Carousel from '../../Components/Carousel/Carousel';
 
 export class Main extends Component {
     render() {
@@ -21,9 +21,21 @@ export class Main extends Component {
                     </div>
                     <div className="transparent"/>
                 </div>
+                <Carousel />
+                <div className="cardContainer">
+                    <div>
+
+                    </div>
+                    <div>
+
+                    </div>
+                    <div>
+
+                    </div>
+                </div>
             </div>
         )
     }
 }
 
-export default Main
+export default Main;
