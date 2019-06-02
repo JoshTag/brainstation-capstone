@@ -11,31 +11,24 @@ export default {
     ],
     datasets: [
         {   
+            label: 'Price Average',
+            type: 'line',
+            borderColor: '#cf0000',
+            hoverBackgroundColor: '#ffbb00',
+            hoverBorderColor: '#ffbb00',
+            data: [
+                453, 5435, 521, 1523, 2433, 4434, 1231 
+            ]
+        },
+        {   
             label: 'Quantity Average',
-            backgroundColor: '#13a000',
+            type: 'bar',
+            backgroundColor: '#0020b1',
             hoverBackgroundColor: '#ffbb00',
             hoverBorderColor: '#ffbb00',
             data: [
                 553, 5535, 221, 5523, 2333, 9334, 1923
             ]
         },
-        {   
-            label: 'Quanity Max',
-            backgroundColor: '#cf0000',
-            hoverBackgroundColor: '#ffbb00',
-            hoverBorderColor: '#ffbb00',
-            data: [
-                753, 8435, 721, 2523, 6433, 10434, 2231 
-            ]
-        },
-        {   
-            label: 'Quanity Min',
-            backgroundColor: '#0020b1',
-            hoverBackgroundColor: '#ffbb00',
-            hoverBorderColor: '#ffbb00',
-            data: [
-                353, 4435, 221, 1323, 1433, 3434, 311 
-            ]
-        }
     ]
 }

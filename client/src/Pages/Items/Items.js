@@ -10,7 +10,7 @@ import './Items.scss';
 // Data Imports
 import PriceGraphData from '../../Data/PriceGraphData';
 import QuantityGraphData from '../../Data/QuantityGraphData';
-import PriceQuantGraphData from '../../Data/PriceQuantGraph';
+import PriceQuantGraphData from '../../Data/PriceQuantGraphData';
 
 export class Items extends Component {
     state = {
