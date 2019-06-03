@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
+import ItemHeader from '../../Components/ItemHeader/ItemHeader';
+import axios from 'axios';
+import './Items.scss';
+
+// Page Components
 import Dashboard from '../../Components/Dashboard/Dashboard';
 import Graphs from '../../Components/Graphs/Graphs';
-import ItemHeader from '../../Components/ItemHeader/ItemHeader';
 import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
-import './Items.scss';
 
 // Data Imports
 import PriceGraphData from '../../Data/PriceGraphData';
@@ -17,6 +20,10 @@ export class Items extends Component {
         priceGraph: true,
         quantGraph: false,
         priceQuantGraph: false
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:3000/itemHistory')
     }
 
     openPrice = () => {
@@ -47,6 +54,9 @@ export class Items extends Component {
         return (
             <div className="itemMain">
                 <Dashboard 
+                    priceGraph={this.state.priceGraph}
+                    quantGraph={this.state.quantGraph}
+                    priceQuantGraph={this.state.priceQuantGraph}
                     price={this.openPrice}
                     quant={this.openQuant}
                     priceQuant={this.openPriceQuant}/>

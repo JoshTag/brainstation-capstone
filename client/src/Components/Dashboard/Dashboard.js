@@ -4,7 +4,35 @@ import logo from '../../Assets/Logo/Logo.png';
 import { Link } from 'react-router-dom';
 
 export class Dashboard extends Component {
+
+    componentDidMount() {
+        if (this.props.priceGraph === true) {
+          this.refs.price.setAttribute("id", "selectedGraph")
+        }
+      }
+
+    componentDidUpdate() {
+        if (this.props.priceGraph === true) {
+          this.refs.price.setAttribute("id", "selectedGraph")
+          this.refs.quant.setAttribute("id", null)
+          this.refs.priceQuant.setAttribute("id", null)
+        } else if (this.props.quantGraph === true) {
+          this.refs.quant.setAttribute("id", "selectedGraph")
+          this.refs.price.setAttribute("id", null)
+          this.refs.priceQuant.setAttribute("id", null)
+        } else {
+          this.refs.priceQuant.setAttribute("id", "selectedGraph")
+          this.refs.price.setAttribute("id", null)
+          this.refs.quant.setAttribute("id", null)
+        }
+      }
+
     render() {
+
+        console.log(this.props.priceGraph)
+        console.log(this.props.quantGraph)
+        console.log(this.props.priceQuantGraph)
+
         return (
             <div className="dashboard">
                 <Link to="/">
@@ -16,17 +44,20 @@ export class Dashboard extends Component {
                     <ul className="dashboard__list btnList" >
                         <button 
                             className="dashboard__list__items btnList__btn" 
-                            onClick={this.props.price}>
+                            onClick={this.props.price}
+                            ref="price">
                                 Price History
                         </button>
                         <button 
                             className="dashboard__list__items btnList__btn" 
-                            onClick={this.props.quant}>
+                            onClick={this.props.quant}
+                            ref="quant">
                                 Quantity History
                         </button>
                         <button 
                             className="dashboard__list__items btnList__btn" 
-                            onClick={this.props.priceQuant}>
+                            onClick={this.props.priceQuant}
+                            ref="priceQuant">
                                 Price Quantity Comparison
                         </button>
                     </ul>

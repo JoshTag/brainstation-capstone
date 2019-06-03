@@ -49,3 +49,15 @@
         text-align: left;
     }
 }
+
+#selectedGraph {
+    background: white;
+    color: $color-black;
+    border-radius: 50px 0 0 50px;
+}
+
+.btnList__btn:hover {
+    background: white;
+    color: $color-black;
+    border-radius: 50px 0 0 50px;
+}
