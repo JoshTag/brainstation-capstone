@@ -14,12 +14,14 @@
         padding: 10px 20px;
         background: white;
 
-        h2 {
+        &__title {
             font-size: 18px;
+            margin: 0 0 16px 0;
         }
 
-        p {
+        &__units {
             font-size: 16px;
+            margin: 0;
         }
     }
 }

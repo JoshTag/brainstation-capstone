@@ -5,7 +5,7 @@ import './Items.scss';
 
 // Page Components
 import Dashboard from '../../Components/Dashboard/Dashboard';
-import Graphs from '../../Components/Graphs/Graphs';
+import Graphs from '../../Components/Graphs/GraphsInfo';
 import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
@@ -22,9 +22,9 @@ export class Items extends Component {
         priceQuantGraph: false
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:3000/itemHistory')
-    }
+    // componentDidMount() {
+    //     axios.get('http://localhost:8080/itemHistory')
+    // }
 
     openPrice = () => {
         this.setState({

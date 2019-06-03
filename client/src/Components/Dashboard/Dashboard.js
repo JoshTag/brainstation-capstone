@@ -28,11 +28,6 @@ export class Dashboard extends Component {
       }
 
     render() {
-
-        console.log(this.props.priceGraph)
-        console.log(this.props.quantGraph)
-        console.log(this.props.priceQuantGraph)
-
         return (
             <div className="dashboard">
                 <Link to="/">
@@ -42,33 +37,33 @@ export class Dashboard extends Component {
                 <div className="dashboard__sectionContainer">
                     <h2 className="dashboard__title">Item Info</h2>
                     <ul className="dashboard__list btnList" >
-                        <button 
-                            className="dashboard__list__items btnList__btn" 
+                        <li 
+                            className="dashboard__list__items" 
                             onClick={this.props.price}
                             ref="price">
                                 Price History
-                        </button>
-                        <button 
-                            className="dashboard__list__items btnList__btn" 
+                        </li>
+                        <li 
+                            className="dashboard__list__items" 
                             onClick={this.props.quant}
                             ref="quant">
                                 Quantity History
-                        </button>
-                        <button 
-                            className="dashboard__list__items btnList__btn" 
+                        </li>
+                        <li 
+                            className="dashboard__list__items" 
                             onClick={this.props.priceQuant}
                             ref="priceQuant">
                                 Price Quantity Comparison
-                        </button>
+                        </li>
                     </ul>
                 </div>
                 <div>
                     <h2 className="dashboard__title">Watch List</h2>
                     <ul className="dashboard__list btnList" >
-                        <button className="dashboard__list__items btnList__btn">Akunda's Bite</button>
-                        <button className="dashboard__list__items btnList__btn">Anchor Weed</button>
-                        <button className="dashboard__list__items btnList__btn">Goblin Glider Kit</button>
-                        <button className="dashboard__list__items btnList__btn">Monelite Ore</button>
+                        <li className="dashboard__list__items">Akunda's Bite</li>
+                        <li className="dashboard__list__items">Anchor Weed</li>
+                        <li className="dashboard__list__items">Goblin Glider Kit</li>
+                        <li className="dashboard__list__items">Monelite Ore</li>
                     </ul>
                 </div>
                 <div>
