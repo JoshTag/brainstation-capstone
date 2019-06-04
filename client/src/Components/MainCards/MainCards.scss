@@ -1,12 +1,12 @@
 @import '../../Styles/scss/Master';
 .cardContainer {
-    margin-top: 20px;
-    padding: 75px 180px 0;
-    height: 688px;
+    margin-top: 60px;
+    padding: 0 24px 0;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    background: #dddddd;
+    justify-content: space-around;
+    background: #e6e6e6;
+    width: 80vw;
 
     &__card {
         height: 400px;
@@ -18,16 +18,20 @@
 
         &__title {
             text-align: center;
-            color: $color-grey;
+            color: $color-black;
         }
 
         &__list {
             list-style: none;
-            color: $color-grey;
+            color: $color-black;
 
             li {
                 margin-bottom: 8px;
             }
         }
     }
+}
+
+a {
+    text-decoration: none;
 }

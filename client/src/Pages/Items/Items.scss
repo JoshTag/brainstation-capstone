@@ -1,7 +1,12 @@
 @import '../../Styles/scss/Master';
 
 .itemMain {
-    height: 100vh;
+    height: 1250px;
     display: flex;
+    background: #e6e6e6;
 }
 
+.graphContainer {
+    display: flex;
+    flex-direction: row;
+}

@@ -1,10 +1,11 @@
 @import '../../Styles/scss/Master';
 
 .graphInfo {    
-    width: 80vw;
     padding: 40px 24px 0;
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    height: 423px;
 
     &__card {
         width: 250px;
@@ -27,6 +28,6 @@
 }
 
 .graphInfo__card:hover{
-    background-color: #696969;
+    background-color: #2d75e0;
     color: white;
 }

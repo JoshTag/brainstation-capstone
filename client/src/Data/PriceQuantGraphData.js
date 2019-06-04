@@ -13,9 +13,9 @@ export default {
         {   
             label: 'Price Average',
             type: 'line',
-            borderColor: '#cf0000',
-            hoverBackgroundColor: '#ffbb00',
-            hoverBorderColor: '#ffbb00',
+            borderColor: '#ED1C24',
+            hoverBackgroundColor: '#FFBE0B',
+            hoverBorderColor: '#FFBE0B',
             data: [
                 453, 5435, 521, 1523, 2433, 4434, 1231 
             ]
@@ -23,9 +23,9 @@ export default {
         {   
             label: 'Quantity Average',
             type: 'bar',
-            backgroundColor: '#0020b1',
-            hoverBackgroundColor: '#ffbb00',
-            hoverBorderColor: '#ffbb00',
+            backgroundColor: '#1098F7',
+            hoverBackgroundColor: '#FFBE0B',
+            hoverBorderColor: '#FFBE0B',
             data: [
                 553, 5535, 221, 5523, 2333, 9334, 1923
             ]

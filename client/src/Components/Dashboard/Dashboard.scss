@@ -2,7 +2,7 @@
 
 .dashboard {
     margin: 0;
-    background-color: $color-grey;
+    background-color: $color-blue;
     width: 20vw;
     height: 1250px;
     color: white;
@@ -40,13 +40,13 @@
 }
 
 #selectedGraph {
-    background: white;
+    background: #e6e6e6;
     color: $color-black;
     border-radius: 50px 0 0 50px;
 }
 
 .dashboard__list__items:hover {
-    background: white;
+    background: #e6e6e6;
     color: $color-black;
     border-radius: 50px 0 0 50px;
 }

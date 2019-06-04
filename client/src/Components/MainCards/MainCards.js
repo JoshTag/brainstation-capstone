@@ -11,7 +11,7 @@ export class MainCards extends Component {
                     POPULAR ITEMS
                 </h3>
                 <ul className="cardContainer__card__list">
-                <li><Link to='/items'>Akunda's Bite</Link></li>
+                    <li><Link to='/itemHistory/117'>Akunda's Bite</Link></li>
                     <li>Anchor Weed</li>
                     <li>Goblin Glider Kit</li>
                     <li>Monelite Ore</li>
@@ -28,7 +28,7 @@ export class MainCards extends Component {
                     HIGHEST PRICED
                 </h3>
                 <ul className="cardContainer__card__list">
-                <li><Link to='/items'>Akunda's Bite</Link></li>
+                    <li><Link to='/itemHistory/117'>Akunda's Bite</Link></li>
                     <li>Anchor Weed</li>
                     <li>Goblin Glider Kit</li>
                     <li>Monelite Ore</li>
@@ -45,7 +45,7 @@ export class MainCards extends Component {
                     WATCH LIST
                 </h3>
                 <ul className="cardContainer__card__list">
-                    <li><Link to='/items'>Akunda's Bite</Link></li>
+                    <li><Link to='/itemHistory/117'>Akunda's Bite</Link></li>
                     <li>Anchor Weed</li>
                     <li>Goblin Glider Kit</li>
                     <li>Monelite Ore</li>

@@ -9,8 +9,9 @@ class App extends React.Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Route exact path="/" component={Main} />
-          <Route path="/item" component={Items} />
+          <Route exact path="/home" component={Main} />
+          <Route path="/itemHistory/:item" component={Items} />
+          <Route path="/itemHistory/" component={Items} />
           <Route path="" component={Error} />
         </Switch>
       </BrowserRouter>
