@@ -11,7 +11,7 @@ export class MainCards extends Component {
                     POPULAR ITEMS
                 </h3>
                 <ul className="cardContainer__card__list">
-                    <li><Link to='/itemHistory/117'>Akunda's Bite</Link></li>
+                    <li><Link to='/itemHistory/152507'>Akunda's Bite</Link></li>
                     <li>Anchor Weed</li>
                     <li>Goblin Glider Kit</li>
                     <li>Monelite Ore</li>
@@ -20,7 +20,7 @@ export class MainCards extends Component {
                     <li>Sea Stalk</li>
                     <li>Siren's Pollen</li>
                     <li>Storm Silver Ore</li>
-                    <li>Tough Jerky</li>
+                    <li><Link to='/itemHistory/117'>Tough Jerky</Link></li>
                 </ul>
             </div>
             <div className="cardContainer__card">
@@ -28,7 +28,7 @@ export class MainCards extends Component {
                     HIGHEST PRICED
                 </h3>
                 <ul className="cardContainer__card__list">
-                    <li><Link to='/itemHistory/117'>Akunda's Bite</Link></li>
+                    <li><Link to='/itemHistory/152507'>Akunda's Bite</Link></li>
                     <li>Anchor Weed</li>
                     <li>Goblin Glider Kit</li>
                     <li>Monelite Ore</li>
@@ -37,7 +37,7 @@ export class MainCards extends Component {
                     <li>Sea Stalk</li>
                     <li>Siren's Pollen</li>
                     <li>Storm Silver Ore</li>
-                    <li>Tough Jerky</li>
+                    <li><Link to='/itemHistory/117'>Tough Jerky</Link></li>
                 </ul>
             </div>
             <div className="cardContainer__card">
@@ -45,7 +45,7 @@ export class MainCards extends Component {
                     WATCH LIST
                 </h3>
                 <ul className="cardContainer__card__list">
-                    <li><Link to='/itemHistory/117'>Akunda's Bite</Link></li>
+                    <li><Link to='/itemHistory/152507'>Akunda's Bite</Link></li>
                     <li>Anchor Weed</li>
                     <li>Goblin Glider Kit</li>
                     <li>Monelite Ore</li>

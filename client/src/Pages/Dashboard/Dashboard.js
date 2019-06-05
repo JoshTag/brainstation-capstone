@@ -1,42 +1,63 @@
 import React, { Component } from 'react';
 import ItemHeader from '../../Components/ItemHeader/ItemHeader';
 import axios from 'axios';
-import './Items.scss';
+import './Dashboard.scss';
+import loading from '../../Assets/Logo/loadingsnake.gif'
 
 // Page Components
-import Dashboard from '../../Components/Dashboard/Dashboard';
+import Dashboard from '../../Components/Dashboard/Sideboard';
 import GraphsInfo from '../../Components/Graphs/GraphsInfo';
 import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
-import MainCards from '../../Components/MainCards/MainCards';
-import Carousel from '../../Components/Carousel/Carousel';
 
 // Data Imports
 import PriceGraphData from '../../Data/PriceGraphData';
 import QuantityGraphData from '../../Data/QuantityGraphData';
 import PriceQuantGraphData from '../../Data/PriceQuantGraphData';
-// import itemsData from '../../Data/ItemName';
 
 export class Items extends Component {
     state = {
-        // itemName: itemsData,
         itemHistory: [],
+        loaded: false,
         priceGraph: true,
         quantGraph: false,
         priceQuantGraph: false
     }
 
-    componentDidMount() {
-        axios.get(`http://localhost:8080/itemHistory/152507`)
-            .then(res => {
-                this.setState({itemHistory: res.data})
+     componentDidMount() {
+        // fetch(`http://localhost:8080/itemHistory/109076`).then(r => r.json())
+        // .then(data => this.setState({ data }))
+        // .catch(err => alert(err.message));
+        // const response = axios.get(`http://localhost:8080/itemHistory/109076`).then(response => console.timeEnd());
+        
+
+        axios.get(`http://localhost:8080/itemHistory/117`) //152507
+            .then(response => {
+                this.setState({
+                    loaded: true, 
+                    itemHistory: response.data
+                })
             })
             .catch(error => {
-                alert('ERROR');
+              alert('ERROR');
             });
-            console.log(this.state.itemHistory)
         }
+
+    componentDidUpdate() {
+        if (this.state.itemHistory.item !== this.props.match.params.item && this.props.match.params.item) {
+            axios.get(`http://localhost:8080/itemHistory/${this.props.match.params.item}`)
+                .then(response => {
+                    this.setState({
+                        itemHistory: response.data
+                    })
+                })
+                .catch(error => {
+                    alert('ERROR');
+                });
+            }
+        }
+
 
     openPrice = () => {
         this.setState({
@@ -64,9 +85,6 @@ export class Items extends Component {
 
     render() {
 
-        console.log(this.state.itemName)
-
-
         return (
             <div className="itemMain">
                 <Dashboard 
@@ -76,34 +94,46 @@ export class Items extends Component {
                     price={this.openPrice}
                     quant={this.openQuant}
                     priceQuant={this.openPriceQuant}/>
-                <div>
-                    <ItemHeader itemHistory={this.state.itemHistory}/>
-                    <div className="graphContainer">
+                <div className="dashboardBody">
+                    { this.state.loaded === false ? 
+                        <div className="emptyHeader" /> : <ItemHeader itemHistory={this.state.itemHistory}/>
+                    }
+                    { this.state.loaded === false ? 
+                        <div />
+                        :
+                        <GraphsInfo 
+                            itemHistory={this.state.itemHistory}
+                            loaded={this.state.loaded}/> 
+                    }
+                    {this.state.loaded === false ? 
+                                          
+                        <div className="loadingImage">
+                            <img src={loading} alt="loading" />
+                        </div>
+                        :
                         <div>
                             { this.state.priceGraph ? 
                                 <PriceGraph 
                                 data={PriceGraphData} 
-                                height={120} 
-                                width={850} /> 
+                                height={150} 
+                                width={975} /> 
                                 : null }
                             { this.state.quantGraph ? 
                                 <QuantityGraph 
                                 data={QuantityGraphData} 
-                                height={120} 
-                                width={850} />
+                                height={150} 
+                                width={975} />
                                 : null}
                             { this.state.priceQuantGraph ?
                                 <PriceQuantGraph 
                                 data={PriceQuantGraphData} 
-                                height={120} 
-                                width={850} />
+                                height={150} 
+                                width={975} />
                                 : null}
-                        </div>
-                        <GraphsInfo itemHistory={this.state.itemHistory}/> 
-                    </div>
-                    <MainCards />
+                        </div>                    
+                    }
                 </div>
-            </div>
+            </div> 
         )
     }
 }

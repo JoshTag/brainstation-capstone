@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './Dashboard.scss';
+import './Sideboard.scss';
 import logo from '../../Assets/Logo/Logo.png';
 import { Link } from 'react-router-dom';
 
@@ -30,7 +30,7 @@ export class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard">
-                <Link to="/home">
+                <Link to="/">
                     <img className="dashboard__logo" src={logo} alt="logo" />
                 </Link>
                 <h1 className="dashboard__header">Dashboard</h1>
@@ -53,18 +53,18 @@ export class Dashboard extends Component {
                             className="dashboard__list__items" 
                             onClick={this.props.priceQuant}
                             ref="priceQuant">
-                                Price Quantity Comparison
+                                Price Quantity
                         </li>
                     </ul>
                 </div>
                 <div>
                     <h2 className="dashboard__title">My Watch List</h2>
-                    <ul className="dashboard__list" >
-                        <li className="dashboard__list__items">Akunda's Bite</li>
-                        <li className="dashboard__list__items">Anchor Weed</li>
-                        <li className="dashboard__list__items">Goblin Glider Kit</li>
-                        <li className="dashboard__list__items">Monelite Ore</li>
-                    </ul>
+                    <div className="dashboard__watchlist" >
+                        <Link className="dashboard__list__items" to='/itemHistory/117'>Tough Jerky</Link>
+                        <Link className="dashboard__list__items" to='/itemHistory/152507'>Akunda's Bite</Link>
+                        <Link className="dashboard__list__items" to='/itemHistory/109076'>Goblin Glider Kit</Link>
+                        <Link className="dashboard__list__items" to='/itemHistory/152510'>Anchor Weed</Link>
+                    </div>
                 </div>
                 <div>
                     <h2 className="dashboard__title">Profile</h2>

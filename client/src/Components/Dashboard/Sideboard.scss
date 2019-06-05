@@ -3,7 +3,7 @@
 .dashboard {
     margin: 0;
     background-color: $color-blue;
-    width: 20vw;
+    width: 15%;
     height: 1250px;
     color: white;
     border-radius: 0 40px 40px 0;
@@ -37,16 +37,47 @@
             padding: 3px 0 0 10px;
         }
     }
+
+    &__watchlist {
+        display: flex;
+        flex-direction: column;
+        padding: 3px 0 0 10px;
+        margin: 15px 0 0 30px;
+    }
+}
+
+.emptyHeader {
+    height: 145px;
+    padding-top: 60px;
+}
+
+.dashboardBody {
+    width: 85%;
 }
 
 #selectedGraph {
-    background: #e6e6e6;
+    background: #dddddd;
     color: $color-black;
     border-radius: 50px 0 0 50px;
 }
 
 .dashboard__list__items:hover {
-    background: #e6e6e6;
+    background: #dddddd;
     color: $color-black;
     border-radius: 50px 0 0 50px;
+    transition: 0.3s;
+}
+
+.loadingImage {
+    height: 423px;
+    padding: 40px 24px 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+    color: white;
 }
