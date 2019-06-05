@@ -1,13 +1,13 @@
 const { Router } = require('express');
 const router = Router();
-const itemHistory = require('../Data/WoWItemHistory');
+const itemHistory = require('../Data/wowData.js');
 
 const getHistory = (req, res) => {
     res.json(itemHistory);
 }
 
 const getItemData = (req, res) => {
-    const findItem = itemHistory.find(findItem => 
+    const findItem = itemHistory.filter(findItem => 
         findItem.item == req.params.item)
     res.json(findItem);
 }

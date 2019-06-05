@@ -4,7 +4,7 @@ import './ItemHeader.scss'
 export class ItemHeader extends Component {
     render() {
 
-        const { name_enus } = this.props.itemHistory;
+        const { name_enus } = this.props.itemHistory[6];
 
         return (
             <div>

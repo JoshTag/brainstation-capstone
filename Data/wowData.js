@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const itemHistory = [];
 
-fs.createReadStream('./WoWData.csv')  
+fs.createReadStream('./Data/itemHistory.csv')  
   .pipe(csv())
   .on('data', (row) => {
     console.log(row);

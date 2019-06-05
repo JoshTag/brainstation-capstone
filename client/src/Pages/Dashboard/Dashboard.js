@@ -22,21 +22,17 @@ export class Items extends Component {
         loaded: false,
         priceGraph: true,
         quantGraph: false,
-        priceQuantGraph: false
+        priceQuantGraph: false,
+        currentItem: ''
     }
 
      componentDidMount() {
-        // fetch(`http://localhost:8080/itemHistory/109076`).then(r => r.json())
-        // .then(data => this.setState({ data }))
-        // .catch(err => alert(err.message));
-        // const response = axios.get(`http://localhost:8080/itemHistory/109076`).then(response => console.timeEnd());
-        
-
-        axios.get(`http://localhost:8080/itemHistory/117`) //152507
+        axios.get(`http://localhost:8080/itemHistory/117`) 
             .then(response => {
                 this.setState({
                     loaded: true, 
-                    itemHistory: response.data
+                    itemHistory: response.data,
+                    // currentItem: response.data[0].item
                 })
             })
             .catch(error => {
@@ -44,8 +40,11 @@ export class Items extends Component {
             });
         }
 
-    componentDidUpdate() {
-        if (this.state.itemHistory.item !== this.props.match.params.item && this.props.match.params.item) {
+    componentDidUpdate(prevProps, prevState) {
+        console.log('params', this.props.match.params.item)
+        console.log('prevparams', prevProps.match.params.item)
+        console.log(prevProps.match.params.items !== this.props.match.params.item)
+        if (this.props.match.params.item && prevProps.match.params.item !== this.props.match.params.item) {
             axios.get(`http://localhost:8080/itemHistory/${this.props.match.params.item}`)
                 .then(response => {
                     this.setState({
@@ -57,7 +56,6 @@ export class Items extends Component {
                 });
             }
         }
-
 
     openPrice = () => {
         this.setState({
@@ -82,9 +80,16 @@ export class Items extends Component {
             priceQuantGraph: true
         });
     }
-
+    dataCreation = (state, key) => {
+        const arr = [] 
+        let i = 0
+        for ( i = 0 ; i < state.length ; i++) {
+            arr.push(state[i][key])
+        }
+        return arr
+    }
+   
     render() {
-
         return (
             <div className="itemMain">
                 <Dashboard 
@@ -95,13 +100,14 @@ export class Items extends Component {
                     quant={this.openQuant}
                     priceQuant={this.openPriceQuant}/>
                 <div className="dashboardBody">
+                    
                     { this.state.loaded === false ? 
-                        <div className="emptyHeader" /> : <ItemHeader itemHistory={this.state.itemHistory}/>
+                        <div className="emptyHeader" /> 
+                        : <ItemHeader itemHistory={this.state.itemHistory}/>
                     }
                     { this.state.loaded === false ? 
                         <div />
-                        :
-                        <GraphsInfo 
+                        : <GraphsInfo 
                             itemHistory={this.state.itemHistory}
                             loaded={this.state.loaded}/> 
                     }
@@ -114,19 +120,24 @@ export class Items extends Component {
                         <div>
                             { this.state.priceGraph ? 
                                 <PriceGraph 
-                                data={PriceGraphData} 
+                                priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
+                                priceMin={this.dataCreation(this.state.itemHistory, 'pricemin')}
+                                priceMax={this.dataCreation(this.state.itemHistory, 'pricemax')}
                                 height={150} 
                                 width={975} /> 
                                 : null }
                             { this.state.quantGraph ? 
                                 <QuantityGraph 
-                                data={QuantityGraphData} 
+                                quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
+                                quantMax={this.dataCreation(this.state.itemHistory, 'quantitymax')}
+                                quantMin={this.dataCreation(this.state.itemHistory, 'quantitymin')}
                                 height={150} 
                                 width={975} />
                                 : null}
                             { this.state.priceQuantGraph ?
                                 <PriceQuantGraph 
-                                data={PriceQuantGraphData} 
+                                priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
+                                quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
                                 height={150} 
                                 width={975} />
                                 : null}
