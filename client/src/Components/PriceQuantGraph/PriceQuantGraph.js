@@ -2,17 +2,9 @@ import React from 'react';
 import { Bar } from 'react-chartjs-2';
 import './PriceQuantGraph.scss';
 
-export default ({ width, height, priceAvg, quantAvg}) => {
+export default ({ width, height, priceAvg, quantAvg, date }) => {
     const priceQuantData = {
-        labels: [
-            '2019-05-22',
-            '2019-05-23',
-            '2019-05-24',
-            '2019-05-25',
-            '2019-05-26',
-            '2019-05-27',
-            '2019-05-28'
-        ],
+        labels: date,
         datasets: [
             {   
                 label: 'Price Average',

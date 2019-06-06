@@ -11,19 +11,13 @@ import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
 
-// Data Imports
-import PriceGraphData from '../../Data/PriceGraphData';
-import QuantityGraphData from '../../Data/QuantityGraphData';
-import PriceQuantGraphData from '../../Data/PriceQuantGraphData';
-
 export class Items extends Component {
     state = {
         itemHistory: [],
         loaded: false,
         priceGraph: true,
         quantGraph: false,
-        priceQuantGraph: false,
-        currentItem: ''
+        priceQuantGraph: false
     }
 
      componentDidMount() {
@@ -31,8 +25,7 @@ export class Items extends Component {
             .then(response => {
                 this.setState({
                     loaded: true, 
-                    itemHistory: response.data,
-                    // currentItem: response.data[0].item
+                    itemHistory: response.data
                 })
             })
             .catch(error => {
@@ -41,9 +34,9 @@ export class Items extends Component {
         }
 
     componentDidUpdate(prevProps, prevState) {
-        console.log('params', this.props.match.params.item)
-        console.log('prevparams', prevProps.match.params.item)
-        console.log(prevProps.match.params.items !== this.props.match.params.item)
+        // console.log('params', this.props.match.params.item)
+        // console.log('prevparams', prevProps.match.params.item)
+        // console.log(prevProps.match.params.items !== this.props.match.params.item)
         if (this.props.match.params.item && prevProps.match.params.item !== this.props.match.params.item) {
             axios.get(`http://localhost:8080/itemHistory/${this.props.match.params.item}`)
                 .then(response => {
@@ -90,6 +83,10 @@ export class Items extends Component {
     }
    
     render() {
+
+        console.log('date', this.state.itemHistory[0])
+        console.log('date array', this.dataCreation(this.state.itemHistory, 'when'))
+
         return (
             <div className="itemMain">
                 <Dashboard 
@@ -123,6 +120,7 @@ export class Items extends Component {
                                 priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
                                 priceMin={this.dataCreation(this.state.itemHistory, 'pricemin')}
                                 priceMax={this.dataCreation(this.state.itemHistory, 'pricemax')}
+                                date={this.dataCreation(this.state.itemHistory, 'when')}
                                 height={150} 
                                 width={975} /> 
                                 : null }
@@ -131,6 +129,7 @@ export class Items extends Component {
                                 quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
                                 quantMax={this.dataCreation(this.state.itemHistory, 'quantitymax')}
                                 quantMin={this.dataCreation(this.state.itemHistory, 'quantitymin')}
+                                date={this.dataCreation(this.state.itemHistory, 'when')}
                                 height={150} 
                                 width={975} />
                                 : null}
@@ -138,6 +137,7 @@ export class Items extends Component {
                                 <PriceQuantGraph 
                                 priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
                                 quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
+                                date={this.dataCreation(this.state.itemHistory, 'when')}
                                 height={150} 
                                 width={975} />
                                 : null}
