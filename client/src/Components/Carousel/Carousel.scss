@@ -1,6 +1,11 @@
 @import '../../Styles/scss/Master';
 
-.carousel__item {
-    text-align: center;
-    width: 80vh;    
+// .carousel__item {
+//     text-align: center;
+//     width: 80vh;    
+// }
+
+marquee {
+    display: flex;
+    flex-direction: row;
 }

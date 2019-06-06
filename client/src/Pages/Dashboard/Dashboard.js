@@ -1,47 +1,36 @@
 import React, { Component } from 'react';
-import ItemHeader from '../../Components/ItemHeader/ItemHeader';
+
 import axios from 'axios';
 import './Dashboard.scss';
-import loading from '../../Assets/Logo/loadingsnake.gif'
+// import loading from '../../Assets/Logo/loadingsnake.gif'
 
 // Page Components
-import Dashboard from '../../Components/Dashboard/Sideboard';
+import Sideboard from '../../Components/Dashboard/Sideboard';
 import GraphsInfo from '../../Components/Graphs/GraphsInfo';
 import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
+import DashboardHome from '../../Components/DashboardHome/DashboardHome';
 
 export class Items extends Component {
     state = {
         itemHistory: [],
-        loaded: false,
-        priceGraph: true,
+        dashboardHome: true,
+        priceGraph: false,
         quantGraph: false,
         priceQuantGraph: false
     }
 
-     componentDidMount() {
-        axios.get(`http://localhost:8080/itemHistory/117`) 
-            .then(response => {
-                this.setState({
-                    loaded: true, 
-                    itemHistory: response.data
-                })
-            })
-            .catch(error => {
-              alert('ERROR');
-            });
-        }
-
     componentDidUpdate(prevProps, prevState) {
-        // console.log('params', this.props.match.params.item)
-        // console.log('prevparams', prevProps.match.params.item)
-        // console.log(prevProps.match.params.items !== this.props.match.params.item)
         if (this.props.match.params.item && prevProps.match.params.item !== this.props.match.params.item) {
             axios.get(`http://localhost:8080/itemHistory/${this.props.match.params.item}`)
                 .then(response => {
                     this.setState({
-                        itemHistory: response.data
+                        itemHistory: response.data,
+                        dashboardHome: false,
+                        priceGraph: true,
+                        quantGraph: false,
+                        priceQuantGraph: false
                     })
                 })
                 .catch(error => {
@@ -73,6 +62,16 @@ export class Items extends Component {
             priceQuantGraph: true
         });
     }
+
+    homeDashboard = () => {
+        this.setState({
+            dashboardHome: true,
+            priceGraph: false,
+            quantGraph: false,
+            priceQuantGraph: false
+        })
+    }
+
     dataCreation = (state, key) => {
         const arr = [] 
         let i = 0
@@ -84,65 +83,60 @@ export class Items extends Component {
    
     render() {
 
-        console.log('date', this.state.itemHistory[0])
-        console.log('date array', this.dataCreation(this.state.itemHistory, 'when'))
+        console.log('state', this.state.itemHistory) 
 
         return (
             <div className="itemMain">
-                <Dashboard 
+                <Sideboard 
                     priceGraph={this.state.priceGraph}
                     quantGraph={this.state.quantGraph}
                     priceQuantGraph={this.state.priceQuantGraph}
                     price={this.openPrice}
                     quant={this.openQuant}
-                    priceQuant={this.openPriceQuant}/>
+                    priceQuant={this.openPriceQuant}
+                    dashboardHome={this.state.dashboardHome}
+                    homeDashboard={this.homeDashboard}/>
                 <div className="dashboardBody">
-                    
-                    { this.state.loaded === false ? 
-                        <div className="emptyHeader" /> 
-                        : <ItemHeader itemHistory={this.state.itemHistory}/>
-                    }
-                    { this.state.loaded === false ? 
+                <div className="itemSearch">
+                    <input className="itemSearch__search" type="text" placeholder="search"></input>
+                    <button className="itemSearch__btn">SEARCH</button>
+                </div>
+                {this.state.dashboardHome ? <DashboardHome itemHistory={this.state.itemHistory} /> : null}
+                    { this.state.dashboardHome === true ? 
                         <div />
-                        : <GraphsInfo 
+                        : 
+                        <GraphsInfo 
                             itemHistory={this.state.itemHistory}
                             loaded={this.state.loaded}/> 
                     }
-                    {this.state.loaded === false ? 
-                                          
-                        <div className="loadingImage">
-                            <img src={loading} alt="loading" />
-                        </div>
-                        :
-                        <div>
-                            { this.state.priceGraph ? 
-                                <PriceGraph 
-                                priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
-                                priceMin={this.dataCreation(this.state.itemHistory, 'pricemin')}
-                                priceMax={this.dataCreation(this.state.itemHistory, 'pricemax')}
-                                date={this.dataCreation(this.state.itemHistory, 'when')}
-                                height={150} 
-                                width={975} /> 
-                                : null }
-                            { this.state.quantGraph ? 
-                                <QuantityGraph 
-                                quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
-                                quantMax={this.dataCreation(this.state.itemHistory, 'quantitymax')}
-                                quantMin={this.dataCreation(this.state.itemHistory, 'quantitymin')}
-                                date={this.dataCreation(this.state.itemHistory, 'when')}
-                                height={150} 
-                                width={975} />
-                                : null}
-                            { this.state.priceQuantGraph ?
-                                <PriceQuantGraph 
-                                priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
-                                quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
-                                date={this.dataCreation(this.state.itemHistory, 'when')}
-                                height={150} 
-                                width={975} />
-                                : null}
-                        </div>                    
-                    }
+                    <div>
+                        { this.state.priceGraph ? 
+                            <PriceGraph 
+                            priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
+                            priceMin={this.dataCreation(this.state.itemHistory, 'pricemin')}
+                            priceMax={this.dataCreation(this.state.itemHistory, 'pricemax')}
+                            date={this.dataCreation(this.state.itemHistory, 'when')}
+                            height={150} 
+                            width={975} /> 
+                            : null }
+                        { this.state.quantGraph ? 
+                            <QuantityGraph 
+                            quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
+                            quantMax={this.dataCreation(this.state.itemHistory, 'quantitymax')}
+                            quantMin={this.dataCreation(this.state.itemHistory, 'quantitymin')}
+                            date={this.dataCreation(this.state.itemHistory, 'when')}
+                            height={150} 
+                            width={975} />
+                            : null}
+                        { this.state.priceQuantGraph ?
+                            <PriceQuantGraph 
+                            priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
+                            quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
+                            date={this.dataCreation(this.state.itemHistory, 'when')}
+                            height={150} 
+                            width={975} />
+                            : null}
+                    </div>                    
                 </div>
             </div> 
         )

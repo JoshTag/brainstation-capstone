@@ -5,3 +5,47 @@
     display: flex;
     background: #fafafa;
 }
+
+.itemSearch{
+    margin: 40px 60px 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+
+    &__search {
+        height: 40px;
+        width: 260px;
+        background-image: url('../../Assets/Images/Icon-search.svg');
+        background-position: 14px 9px;
+        background-repeat: no-repeat;
+        padding: 0 0 0 45px;
+        border-radius: 20px;
+        margin-right: 16px;
+        border: 1px solid $color-blue;
+    }
+
+    &__btn {
+        height: 40px;
+        width: 120px;
+        font-family: $font-primary;
+        font-size: 18px;
+        color: white;
+        border: none;
+        padding: 0;
+        background-color: $color-blue;
+        border-radius: 20px;
+    }
+}
+
+.itemSearch__btn:hover {
+    background: rgba(255, 255, 255, .3);
+    border: 1px solid $color-blue; 
+    color: $color-black;
+    transition: .3s;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}

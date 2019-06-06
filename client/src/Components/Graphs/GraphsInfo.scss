@@ -1,15 +1,27 @@
 @import '../../Styles/scss/Master';
 
+.graphBanner {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 60px 0;
+    align-items: flex-end;
+
+    a {
+        text-decoration: none;
+        color: $color-black;
+    }
+}
+
 .graphInfo {    
-    padding: 0 24px 0;
+    padding: 0 60px 30px;
     display: flex;
     justify-content: space-between;
 
     &__card {
         width: 250px;
-        border-radius: 5px;
-        border: 1px solid rgba(0, 0, 0, .2);
-        box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+        border-radius: 10px;
+        // border: 1px solid rgba(0, 0, 0, .2);
+        // box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
         padding: 10px 20px;
         background: white;
 
@@ -23,10 +35,6 @@
             margin: 0;
         }
     }
-}
-
-.infoTitle {
-    margin-left: 24px
 }
 
 .graphInfo__card:hover{

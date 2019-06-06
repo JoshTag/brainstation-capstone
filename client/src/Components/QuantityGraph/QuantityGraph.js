@@ -38,7 +38,11 @@ export default ({ width, height, quantAvg, quantMax, quantMin, date }) => {
             width={width}
             height={height}
             options={{
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
+                animation: {
+                    easing: 'easeInOutQuad',
+                    duration: 1000
+                }
             }}
         />
     </div>

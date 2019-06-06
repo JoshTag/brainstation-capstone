@@ -3,13 +3,13 @@ import './Sideboard.scss';
 import logo from '../../Assets/Logo/Logo.png';
 import { Link } from 'react-router-dom';
 
-export class Dashboard extends Component {
+export class Sideboard extends Component {
 
-    componentDidMount() {
-        if (this.props.priceGraph === true) {
-          this.refs.price.setAttribute("id", "selectedGraph")
-        }
-      }
+    // componentDidMount() {
+    //     if (this.props.priceGraph === true) {
+    //       this.refs.price.setAttribute("id", "selectedGraph")
+    //     }
+    //   }
 
     componentDidUpdate() {
         if (this.props.priceGraph === true) {
@@ -33,7 +33,9 @@ export class Dashboard extends Component {
                 <Link to="/">
                     <img className="dashboard__logo" src={logo} alt="logo" />
                 </Link>
-                <h1 className="dashboard__header">Dashboard</h1>
+                <Link to="/itemHistory" onClick={this.props.homeDashboard}>
+                    <h1 className="dashboard__header">Dashboard</h1>
+                </Link>
                 <div className="dashboard__sectionContainer">
                     <h2 className="dashboard__title">Item Overview</h2>
                     <ul className="dashboard__list" >
@@ -60,23 +62,17 @@ export class Dashboard extends Component {
                 <div>
                     <h2 className="dashboard__title">My Watch List</h2>
                     <div className="dashboard__watchlist" >
-                        <Link className="dashboard__list__items" to='/itemHistory/117'>Tough Jerky</Link>
                         <Link className="dashboard__list__items" to='/itemHistory/152507'>Akunda's Bite</Link>
                         <Link className="dashboard__list__items" to='/itemHistory/109076'>Goblin Glider Kit</Link>
                         <Link className="dashboard__list__items" to='/itemHistory/152510'>Anchor Weed</Link>
+                        <Link className="dashboard__list__items" to='/itemHistory/152505'>Riverbud</Link>
+                        <Link className="dashboard__list__items" to='/itemHistory/152513'>Platinum Ore</Link>
+                        <Link className="dashboard__list__items" to='/itemHistory/152512'>Monelite Ore</Link>
                     </div>
-                </div>
-                <div>
-                    <h2 className="dashboard__title">Profile</h2>
-                    <ul className="dashboard__list" >
-                        <li className="dashboard__list__items">Home</li>
-                        <li className="dashboard__list__items">¯\_(ツ)_/¯</li>
-                        <li className="dashboard__list__items">Log Out</li>
-                    </ul>
                 </div>
             </div>
         )
     }
 }
 
-export default Dashboard;
+export default Sideboard;

@@ -5,15 +5,15 @@ import Carousel from '../../Components/Carousel/Carousel';
 import MainCards from '../../Components/MainCards/MainCards'
 
 export class Main extends Component {
-    state = {
-        searchItem: ''
-    }
+    // state = {
+    //     searchItem: ''
+    // }
 
-    handleChange = (e) => {
-        this.setState({
-          searchItem: e.target.value
-        });
-      }
+    // handleChange = (e) => {
+    //     this.setState({
+    //       searchItem: e.target.value
+    //     });
+    //   }
 
     render() {
         return (
@@ -34,7 +34,7 @@ export class Main extends Component {
                                 className="hero__content__bar" 
                                 type="text" 
                                 placeholder="Search Item..."
-                                value={this.state.searchItem}
+                                // value={this.state.searchItem}
                                 onChange={this.handleChange} />
                             <button className="hero__content__btn">SEARCH</button>
                         </div>

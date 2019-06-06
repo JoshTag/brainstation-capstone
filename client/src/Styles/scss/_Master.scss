@@ -9,8 +9,13 @@
     src:    url('../../Assets/Fonts/Ubuntu-Regular.ttf') format('opentype'),
 }
 
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src:    url('../../Assets/Fonts/Roboto-Medium.ttf') format('opentype'),
+}
+
 // Colors
-$font-primary: "Ubuntu", "sans-serif";
+$font-primary: 'Roboto', sans-serif;
 $font-warcraft: "Warcraft";
 
 $color-black: #323232;

@@ -12,6 +12,7 @@ export default ({ width, height, priceAvg, quantAvg, date }) => {
                 borderColor: '#ED1C24',
                 hoverBackgroundColor: '#FFBE0B',
                 hoverBorderColor: '#FFBE0B',
+                lineTension: 0,
                 data: priceAvg
             },
             {   
@@ -34,7 +35,11 @@ export default ({ width, height, priceAvg, quantAvg, date }) => {
             width={width}
             height={height}
             options={{
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
+                animation: {
+                    easing: 'easeInOutQuad',
+                    duration: 1000
+                }
             }}
         />
     </div>

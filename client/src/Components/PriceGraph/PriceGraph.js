@@ -5,32 +5,36 @@ import './PriceGraph.scss';
 export default ({ width, height, priceAvg,priceMin, priceMax, date }) => { 
     const priceData =  {
         labels: date,
+        easing: 'easeInBounce',
         datasets: [
             {   
                 label: 'Price Average',
                 borderColor: '#1098F7',
                 hoverBackgroundColor: '#FFBE0B',
                 hoverBorderColor: '#FFBE0B',
-                data: priceAvg
+                data: priceAvg,
+                lineTension: 0
             },
             {   
                 label: 'Price Max',
                 borderColor: '#29BF12',
                 hoverBackgroundColor: '#FFBE0B',
                 hoverBorderColor: '#FFBE0B',
-                data: priceMax
+                data: priceMax,
+                lineTension: 0
             },
             {   
                 label: 'Price Min',
                 borderColor: '#ED1C24',
                 hoverBackgroundColor: '#FFBE0B',
                 hoverBorderColor: '#FFBE0B',
-                data: priceMin
+                data: priceMin,
+                lineTension: 0
             }
         ]
     }
-    return (
 
+    return (
      <div className="graph" >
         <h1>Price History</h1>
         <Line
@@ -38,7 +42,11 @@ export default ({ width, height, priceAvg,priceMin, priceMax, date }) => {
             width={width}
             height={height}
             options={{
-                maintainAspectRatio: false
+                maintainAspectRatio: false,
+                animation: {
+                    easing: 'easeInOutQuad',
+                    duration: 1000
+                }
             }}
         />
     </div>
