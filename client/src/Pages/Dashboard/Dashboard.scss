@@ -1,13 +1,12 @@
 @import '../../Styles/scss/Master';
 
 .itemMain {
-    height: 1250px;
     display: flex;
-    background: #fafafa;
+    background: $color-grey;
 }
 
 .itemSearch{
-    margin: 40px 60px 0;
+    margin-top: 40px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -36,6 +35,14 @@
         background-color: $color-blue;
         border-radius: 20px;
     }
+}
+
+.dashboardBody {
+    width: 1400px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
 }
 
 .itemSearch__btn:hover {

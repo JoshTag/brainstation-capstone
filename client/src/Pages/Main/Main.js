@@ -2,19 +2,9 @@ import React, { Component } from 'react';
 import Nav from '../../Components/Nav/Nav';
 import './Main.scss';
 import Carousel from '../../Components/Carousel/Carousel';
-import MainCards from '../../Components/MainCards/MainCards'
+import MainCards from '../../Components/MainCards/MainCards';
 
 export class Main extends Component {
-    // state = {
-    //     searchItem: ''
-    // }
-
-    // handleChange = (e) => {
-    //     this.setState({
-    //       searchItem: e.target.value
-    //     });
-    //   }
-
     render() {
         return (
             <div >
@@ -34,7 +24,6 @@ export class Main extends Component {
                                 className="hero__content__bar" 
                                 type="text" 
                                 placeholder="Search Item..."
-                                // value={this.state.searchItem}
                                 onChange={this.handleChange} />
                             <button className="hero__content__btn">SEARCH</button>
                         </div>
@@ -42,6 +31,7 @@ export class Main extends Component {
                     <div className="transparent"/>
                 </div>
                 <Carousel />
+                {/* <ItemTicker /> */}
                 <MainCards />
             </div>
         )

@@ -15,8 +15,8 @@ export class GraphsInfo extends Component {
             quantitymax,
             pricestart,
             priceend,
-            item } = this.props.itemHistory[this.props.itemHistory.length - 1];
-        const { name_enus } = this.props.itemHistory[6];
+            item,
+            name_enus  } = this.props.itemHistory[this.props.itemHistory.length - 1];
 
         return (
             <div>

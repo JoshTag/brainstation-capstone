@@ -1,0 +1,25 @@
+@import '../../Styles/scss/Master';
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0 240px;
+
+    &__btn {
+        width: 150px;
+        height: 65px;
+        background: $color-blue;
+        border: none;
+        color: white;
+        border-radius: 20px;
+        font-size: 14px;
+    }
+}
+
+.buttonContainer__btn:hover {
+    background: rgba(255, 255, 255, .3);
+    border: 1px solid $color-blue; 
+    color: $color-black;
+    transition: .3s;
+}

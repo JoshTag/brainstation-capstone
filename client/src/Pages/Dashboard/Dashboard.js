@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
 import './Dashboard.scss';
-// import loading from '../../Assets/Logo/loadingsnake.gif'
 
 // Page Components
 import Sideboard from '../../Components/Dashboard/Sideboard';
@@ -11,6 +9,7 @@ import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
 import DashboardHome from '../../Components/DashboardHome/DashboardHome';
+import PickGraph from '../../Components/PickGraph/PickGraph';
 
 export class Items extends Component {
     state = {
@@ -18,7 +17,8 @@ export class Items extends Component {
         dashboardHome: true,
         priceGraph: false,
         quantGraph: false,
-        priceQuantGraph: false
+        priceQuantGraph: false,
+        graphDisplayed: false
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -27,10 +27,7 @@ export class Items extends Component {
                 .then(response => {
                     this.setState({
                         itemHistory: response.data,
-                        dashboardHome: false,
-                        priceGraph: true,
-                        quantGraph: false,
-                        priceQuantGraph: false
+                        dashboardHome: false
                     })
                 })
                 .catch(error => {
@@ -43,7 +40,8 @@ export class Items extends Component {
         this.setState({
             priceGraph: true,
             quantGraph: false,
-            priceQuantGraph: false
+            priceQuantGraph: false,
+            graphDisplayed: true
         });
     }
 
@@ -51,7 +49,8 @@ export class Items extends Component {
         this.setState({
             priceGraph: false,
             quantGraph: true,
-            priceQuantGraph: false
+            priceQuantGraph: false,
+            graphDisplayed: true
         });
     }
 
@@ -59,7 +58,8 @@ export class Items extends Component {
         this.setState({
             priceGraph: false,
             quantGraph: false,
-            priceQuantGraph: true
+            priceQuantGraph: true,
+            graphDisplayed: true
         });
     }
 
@@ -68,7 +68,8 @@ export class Items extends Component {
             dashboardHome: true,
             priceGraph: false,
             quantGraph: false,
-            priceQuantGraph: false
+            priceQuantGraph: false,
+            graphDisplayed: false
         })
     }
 
@@ -83,7 +84,9 @@ export class Items extends Component {
    
     render() {
 
-        console.log('state', this.state.itemHistory) 
+        console.log('price', this.state.priceGraph) 
+        console.log('quant', this.state.quantGraph) 
+        console.log('pricequant', this.state.priceQuantGraph) 
 
         return (
             <div className="itemMain">
@@ -95,21 +98,28 @@ export class Items extends Component {
                     quant={this.openQuant}
                     priceQuant={this.openPriceQuant}
                     dashboardHome={this.state.dashboardHome}
-                    homeDashboard={this.homeDashboard}/>
+                    homeDashboard={this.dashboardHome}/>
                 <div className="dashboardBody">
-                <div className="itemSearch">
-                    <input className="itemSearch__search" type="text" placeholder="search"></input>
-                    <button className="itemSearch__btn">SEARCH</button>
-                </div>
-                {this.state.dashboardHome ? <DashboardHome itemHistory={this.state.itemHistory} /> : null}
+                    <div className="itemSearch">
+                        <input className="itemSearch__search" type="text" placeholder="search"></input>
+                        <button className="itemSearch__btn">SEARCH</button>
+                    </div>
+                    { this.state.dashboardHome ? <DashboardHome itemHistory={this.state.itemHistory} /> : null}
                     { this.state.dashboardHome === true ? 
-                        <div />
-                        : 
+                        null :
                         <GraphsInfo 
-                            itemHistory={this.state.itemHistory}
-                            loaded={this.state.loaded}/> 
+                                itemHistory={this.state.itemHistory}
+                                loaded={this.state.loaded}/> 
                     }
+                    { this.state.graphDisplayed !== true && this.state.dashboardHome !== true  ? 
+                        <PickGraph 
+                            itemHistory={this.state.itemHistory}
+                            price={this.openPrice}
+                            quant={this.openQuant}
+                            priceQuant={this.openPriceQuant} /> 
+                    : null }
                     <div>
+
                         { this.state.priceGraph ? 
                             <PriceGraph 
                             priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
@@ -136,6 +146,39 @@ export class Items extends Component {
                             height={150} 
                             width={975} />
                             : null}
+                            
+
+                        {/* { this.state.dashboardHome === false ? 
+
+                        <div>
+                            <PriceGraph 
+                            priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
+                            priceMin={this.dataCreation(this.state.itemHistory, 'pricemin')}
+                            priceMax={this.dataCreation(this.state.itemHistory, 'pricemax')}
+                            date={this.dataCreation(this.state.itemHistory, 'when')}
+                            height={150} 
+                            width={975} /> 
+
+                            <QuantityGraph 
+                            quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
+                            quantMax={this.dataCreation(this.state.itemHistory, 'quantitymax')}
+                            quantMin={this.dataCreation(this.state.itemHistory, 'quantitymin')}
+                            date={this.dataCreation(this.state.itemHistory, 'when')}
+                            height={150} 
+                            width={975} />
+
+                            <PriceQuantGraph 
+                            priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
+                            quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
+                            date={this.dataCreation(this.state.itemHistory, 'when')}
+                            height={150} 
+                            width={975} />
+                        </div>
+
+                        :
+
+                        null } */}
+
                     </div>                    
                 </div>
             </div> 
