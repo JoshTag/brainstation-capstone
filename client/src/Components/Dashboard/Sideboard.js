@@ -16,11 +16,11 @@ export class Sideboard extends Component {
             this.refs.price.setAttribute("id", "selectedGraph")
             this.refs.quant.setAttribute("id", null)
             this.refs.priceQuant.setAttribute("id", null)
-        } if (this.props.quantGraph === true) {
+        } else if (this.props.quantGraph === true) {
             this.refs.quant.setAttribute("id", "selectedGraph")
             this.refs.price.setAttribute("id", null)
             this.refs.priceQuant.setAttribute("id", null)
-        } if (this.props.quantGraph === true) {
+        } else if (this.props.quantGraph === true) {
             this.refs.priceQuant.setAttribute("id", "selectedGraph")
             this.refs.price.setAttribute("id", null)
             this.refs.quant.setAttribute("id", null)

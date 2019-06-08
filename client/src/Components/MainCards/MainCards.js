@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './MainCards.scss';
 import { Link } from 'react-router-dom';
-import sal from 'sal.js'
 
 export class MainCards extends Component {
     render() {
-        sal();
-
         return (
             <div className="cardContainer">
                 <div className="cardContainer__card">
