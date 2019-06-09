@@ -5,12 +5,6 @@ import { Link } from 'react-router-dom';
 
 export class Sideboard extends Component {
 
-    // componentDidMount() {
-    //     if (this.props.priceGraph === true) {
-    //       this.refs.price.setAttribute("id", "selectedGraph")
-    //     }
-    //   }
-
     componentDidUpdate() {
         if (this.props.priceGraph === true) {
             this.refs.price.setAttribute("id", "selectedGraph")
@@ -34,7 +28,7 @@ export class Sideboard extends Component {
                     <Link className="imageContainer" to="/">
                         <img className="dashboard__card__logo" src={logo} alt="logo" />
                     </Link>
-                    <Link to="/itemHistory/" onClick={this.props.homeDashboard}>
+                    <Link to="/dashboard/" onClick={this.props.homeDashboard}>
                         <h1 className="dashboard__card__header">Dashboard</h1>
                     </Link>
                     <div className="dashboard__card__sectionContainer">
@@ -63,12 +57,36 @@ export class Sideboard extends Component {
                     <div>
                         <h2 className="dashboard__card__title">My Watch List</h2>
                         <div className="dashboard__card__watchlist" >
-                            <Link className="dashboard__card__list__items dashboardAlign" to='/itemHistory/152507'>Akunda's Bite</Link>
-                            <Link className="dashboard__card__list__items dashboardAlign" to='/itemHistory/109076'>Goblin Glider Kit</Link>
-                            <Link className="dashboard__card__list__items dashboardAlign" to='/itemHistory/152510'>Anchor Weed</Link>
-                            <Link className="dashboard__card__list__items dashboardAlign" to='/itemHistory/152505'>Riverbud</Link>
-                            <Link className="dashboard__card__list__items dashboardAlign" to='/itemHistory/152513'>Platinum Ore</Link>
-                            <Link className="dashboard__card__list__items dashboardAlign" to='/itemHistory/152512'>Monelite Ore</Link>
+                            <Link 
+                                className="dashboard__card__list__items dashboardAlign" 
+                                to='/dashboard/details/152507'>
+                                    Akunda's Bite
+                            </Link>
+                            <Link 
+                                className="dashboard__card__list__items dashboardAlign" 
+                                to='/dashboard/details/109076'>
+                                    Goblin Glider Kit
+                            </Link>
+                            <Link 
+                                className="dashboard__card__list__items dashboardAlign" 
+                                to='/dashboard/details/152510'>
+                                    Anchor Weed
+                            </Link>
+                            <Link 
+                                className="dashboard__card__list__items dashboardAlign" 
+                                to='/dashboard/details/152505'>
+                                    Riverbud
+                            </Link>
+                            <Link 
+                                className="dashboard__card__list__items dashboardAlign" 
+                                to='/dashboard/details/152513'>
+                                    Platinum Ore
+                            </Link>
+                            <Link 
+                                className="dashboard__card__list__items dashboardAlign" 
+                                to='/dashboard/details/152512'>
+                                    Monelite Ore
+                            </Link>
                         </div>
                     </div>
                 </div>

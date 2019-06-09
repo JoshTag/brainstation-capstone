@@ -8,7 +8,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
-app.use('/itemHistory', itemHistory);
+app.use('/details', itemHistory);
 
 app.listen(port, () => {
     console.log(`listening on http://localhost:${port}`);
