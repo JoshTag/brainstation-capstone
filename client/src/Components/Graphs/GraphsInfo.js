@@ -5,42 +5,9 @@ import axios from 'axios';
 
 export class GraphsInfo extends Component {
 
-    state = {
-        itemHistory: []
-    }
-
-    componentDidMount() {
-        axios.get(`http://localhost:8080/details/117`)
-        .then(response => {
-            this.setState({
-                itemHistory: response.data,
-                dashboardHome: false
-            })
-        })
-        .catch(error => {
-            alert('ERROR');
-        });
-    }
-
-    componentDidUpdate(prevProps, prevState) {
-        // if (this.props.match.params.item && prevProps.match.params.item !== this.props.match.params.item) {
-        // }
-            axios.get(`http://localhost:8080/details/117`)
-                .then(response => {
-                    this.setState({
-                        itemHistory: response.data,
-                        dashboardHome: false
-                    })
-                })
-                .catch(error => {
-                    alert('ERROR');
-                });
-        }
 
 
     render() {
-
-        console.log(this.state.itemHistory)
 
 
         // const { 
@@ -54,7 +21,7 @@ export class GraphsInfo extends Component {
         //     pricestart,
         //     priceend,
         //     item,
-        //     name_enus  } = this.props.itemHistory[this.props.itemHistory.length - 1];
+        //     name_enus  } = this.state.itemHistory[this.props.itemHistory.length - 1];
 
         return (
             <div>
