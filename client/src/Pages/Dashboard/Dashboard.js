@@ -9,7 +9,6 @@ import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
 import TopItems from '../../Components/DashboardHome/TopItems';
-import PickGraph from '../../Components/PickGraph/PickGraph';
 
 export class Items extends Component {
     state = {
