@@ -21,7 +21,7 @@ export class Items extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.props.match.params.item && prevProps.match.params.item !== this.props.match.params.item) {
-            axios.get(`http://localhost:8080/itemHistory/${this.props.match.params.item}`)
+            axios.get(`http://localhost:8080/details/${this.props.match.params.item}`)
                 .then(response => {
                     this.setState({
                         itemHistory: response.data,
