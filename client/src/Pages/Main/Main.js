@@ -3,6 +3,7 @@ import Nav from '../../Components/Nav/Nav';
 import './Main.scss';
 import Carousel from '../../Components/Carousel/Carousel';
 import MainCards from '../../Components/MainCards/MainCards';
+import Hero from '../../Components/Hero/Hero'
 
 export class Main extends Component {
     render() {
@@ -30,8 +31,8 @@ export class Main extends Component {
                     </div>
                     <div className="transparent"/>
                 </div>
+                {/* <Hero /> */}
                 <Carousel />
-                {/* <ItemTicker /> */}
                 <MainCards />
             </div>
         )

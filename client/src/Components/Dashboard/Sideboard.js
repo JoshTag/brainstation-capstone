@@ -20,14 +20,10 @@ export class Sideboard extends Component {
             this.refs.quant.setAttribute("id", "selectedGraph")
             this.refs.price.setAttribute("id", null)
             this.refs.priceQuant.setAttribute("id", null)
-        } else if (this.props.quantGraph === true) {
+        } else if (this.props.priceQuantGraph === true) {
             this.refs.priceQuant.setAttribute("id", "selectedGraph")
             this.refs.price.setAttribute("id", null)
             this.refs.quant.setAttribute("id", null)
-        } else {
-            this.refs.price.setAttribute("id", null)
-            this.refs.quant.setAttribute("id", null)
-            this.refs.priceQuant.setAttribute("id", null)
         }
       }
 
@@ -38,7 +34,7 @@ export class Sideboard extends Component {
                     <Link className="imageContainer" to="/">
                         <img className="dashboard__card__logo" src={logo} alt="logo" />
                     </Link>
-                    <Link to="/itemHistory" onClick={this.props.homeDashboard}>
+                    <Link to="/itemHistory/" onClick={this.props.homeDashboard}>
                         <h1 className="dashboard__card__header">Dashboard</h1>
                     </Link>
                     <div className="dashboard__card__sectionContainer">

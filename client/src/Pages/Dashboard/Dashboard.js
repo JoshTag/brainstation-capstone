@@ -8,7 +8,7 @@ import GraphsInfo from '../../Components/Graphs/GraphsInfo';
 import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
-import DashboardHome from '../../Components/DashboardHome/DashboardHome';
+import TopItems from '../../Components/DashboardHome/TopItems';
 import PickGraph from '../../Components/PickGraph/PickGraph';
 
 export class Items extends Component {
@@ -17,8 +17,7 @@ export class Items extends Component {
         dashboardHome: true,
         priceGraph: false,
         quantGraph: false,
-        priceQuantGraph: false,
-        graphDisplayed: false
+        priceQuantGraph: false
     }
 
     componentDidUpdate(prevProps, prevState) {
@@ -40,8 +39,7 @@ export class Items extends Component {
         this.setState({
             priceGraph: true,
             quantGraph: false,
-            priceQuantGraph: false,
-            graphDisplayed: true
+            priceQuantGraph: false
         });
     }
 
@@ -49,8 +47,7 @@ export class Items extends Component {
         this.setState({
             priceGraph: false,
             quantGraph: true,
-            priceQuantGraph: false,
-            graphDisplayed: true
+            priceQuantGraph: false
         });
     }
 
@@ -58,8 +55,7 @@ export class Items extends Component {
         this.setState({
             priceGraph: false,
             quantGraph: false,
-            priceQuantGraph: true,
-            graphDisplayed: true
+            priceQuantGraph: true
         });
     }
 
@@ -68,8 +64,7 @@ export class Items extends Component {
             dashboardHome: true,
             priceGraph: false,
             quantGraph: false,
-            priceQuantGraph: false,
-            graphDisplayed: false
+            priceQuantGraph: false
         })
     }
 
@@ -104,20 +99,13 @@ export class Items extends Component {
                         <input className="itemSearch__search" type="text" placeholder="search"></input>
                         <button className="itemSearch__btn">SEARCH</button>
                     </div>
-                    { this.state.dashboardHome ? <DashboardHome itemHistory={this.state.itemHistory} /> : null}
+                    { this.state.dashboardHome ? <TopItems itemHistory={this.state.itemHistory} /> : null}
                     { this.state.dashboardHome === true ? 
                         null :
                         <GraphsInfo 
                                 itemHistory={this.state.itemHistory}
                                 loaded={this.state.loaded}/> 
                     }
-                    { this.state.graphDisplayed !== true && this.state.dashboardHome !== true  ? 
-                        <PickGraph 
-                            itemHistory={this.state.itemHistory}
-                            price={this.openPrice}
-                            quant={this.openQuant}
-                            priceQuant={this.openPriceQuant} /> 
-                    : null }
                     <div>
 
                         { this.state.priceGraph ? 
