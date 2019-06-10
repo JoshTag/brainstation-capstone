@@ -4,23 +4,6 @@ import logo from '../../Assets/Logo/Logo.png';
 import { Link } from 'react-router-dom';
 
 export class Sideboard extends Component {
-
-    componentDidUpdate() {
-        if (this.props.priceGraph === true) {
-            this.refs.price.setAttribute("id", "selectedGraph")
-            this.refs.quant.setAttribute("id", null)
-            this.refs.priceQuant.setAttribute("id", null)
-        } else if (this.props.quantGraph === true) {
-            this.refs.quant.setAttribute("id", "selectedGraph")
-            this.refs.price.setAttribute("id", null)
-            this.refs.priceQuant.setAttribute("id", null)
-        } else if (this.props.priceQuantGraph === true) {
-            this.refs.priceQuant.setAttribute("id", "selectedGraph")
-            this.refs.price.setAttribute("id", null)
-            this.refs.quant.setAttribute("id", null)
-        }
-      }
-
     render() {
         return (
             <div className="dashboard">
@@ -31,28 +14,33 @@ export class Sideboard extends Component {
                     <Link to="/dashboard" onClick={this.props.homeDashboard}>
                         <h1 className="dashboard__card__header">Dashboard</h1>
                     </Link>
-                    <div className="dashboard__card__sectionContainer">
-                        <h2 className="dashboard__card__title">Item Overview</h2>
-                        <div className="dashboard__card__list" >
-                            <div 
-                                className="dashboard__card__list__items" 
-                                onClick={this.props.price}
-                                ref="price">
-                                    Price History
-                            </div>
-                            <div 
-                                className="dashboard__card__list__items" 
-                                onClick={this.props.quant}
-                                ref="quant">
-                                    Quantity History
-                            </div>
-                            <div 
-                                className="dashboard__card__list__items" 
-                                onClick={this.props.priceQuant}
-                                ref="priceQuant">
-                                    Price Quantity
-                            </div>
-                        </div>
+                    <div className="dashboard__card__profileContainer">
+                        <h2>Top Items</h2>
+                        <Link 
+                            to="/dashboard/details/152507"
+                            className="dashboard__card__profileContainer__item" >
+                            Akunda's Bite
+                        </Link>
+                        <Link 
+                            to="/dashboard/details/152512"
+                            className="dashboard__card__profileContainer__item">
+                            Monelite Ore
+                        </Link>
+                        <Link 
+                            to="/dashboard/details/152510"
+                            className="dashboard__card__profileContainer__item">
+                            Anchor Weed
+                        </Link>
+                        <Link 
+                            to="/dashboard/details/152508"
+                            className="dashboard__card__profileContainer__item">
+                            Winter's Kiss
+                        </Link>
+                        <Link 
+                            to="/dashboard/details/152507"
+                            className="dashboard__card__profileContainer__item">
+                            Blood-Stained Bone
+                        </Link>
                     </div>
                     <div>
                         <h2 className="dashboard__card__title">My Watch List</h2>
@@ -86,6 +74,16 @@ export class Sideboard extends Component {
                                 className="dashboard__card__list__items dashboardAlign" 
                                 to='/dashboard/details/152512'>
                                     Monelite Ore
+                            </Link>
+                            <Link 
+                                className="dashboard__card__list__items dashboardAlign" 
+                                to='/dashboard/details/163223'>
+                                    Battle Potion of Agility
+                            </Link>
+                            <Link 
+                                className="dashboard__card__list__items dashboardAlign" 
+                                to='/dashboard/details/163224'>
+                                    Battle Potion of Strength
                             </Link>
                         </div>
                     </div>

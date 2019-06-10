@@ -15,17 +15,17 @@ export class PickGraph extends Component {
                     <Link 
                         to={`${this.props.match.url}/priceChart`}
                         className="buttonContainer__btn">
-                            Price Information
+                            <p className="buttonContainer__btn__title">Price Information</p>
                     </Link>
                     <Link 
                         to={`${this.props.match.url}/quantChart`}
                         className="buttonContainer__btn">
-                            Quantity Information
+                            <p className="buttonContainer__btn__title">Quantity Information</p>
                     </Link>
                     <Link 
                         to={`${this.props.match.url}/priceQuantChart`}
                         className="buttonContainer__btn">
-                            Price Quanitity Comparison
+                            <p className="buttonContainer__btn__title">Price Quanitity Comparison</p>
                     </Link>
                 </div>
             </div>
