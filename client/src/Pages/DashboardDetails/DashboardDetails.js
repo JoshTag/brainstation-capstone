@@ -52,18 +52,16 @@ export class DashboardDetails extends Component {
     }
 
     render() {
-        
         return (
             <div>
-            { this.state.isLoaded === true ?
-                <div>
-                    <GraphsInfo 
-                        itemHistory={this.state.itemHistory} /> 
-                    <PickGraph
-                        itemHistory={this.state.itemHistory}
-                        match={this.props.match} 
-                        />
-
+                { this.state.isLoaded === true ?
+                    <div>
+                        <GraphsInfo 
+                            itemHistory={this.state.itemHistory} /> 
+                        <PickGraph
+                            itemHistory={this.state.itemHistory}
+                            match={this.props.match} 
+                            />
                         <Switch>
                             <Route 
                                 path={`${this.props.match.url}/priceChart`}
@@ -99,9 +97,7 @@ export class DashboardDetails extends Component {
                                         date={this.dataCreation(this.state.itemHistory, 'when')}
                                         height={150} 
                                         width={975} /> }/>
-
                         </Switch>
-
                     </div>
                 : null }
             </div>

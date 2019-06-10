@@ -4,9 +4,8 @@ import { Link } from 'react-router-dom';
 
 export class PickGraph extends Component {
     render() {
+        
         const { name_enus } = this.props.itemHistory[6];
-
-        console.log(this.props.match.url)
 
         return (
             <div>

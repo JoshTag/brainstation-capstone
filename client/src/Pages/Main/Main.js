@@ -4,13 +4,14 @@ import './Main.scss';
 import Carousel from '../../Components/Carousel/Carousel';
 import MainCards from '../../Components/MainCards/MainCards';
 import { Link } from 'react-router-dom';
+import Hero from '../../Components/Hero/Hero'
 
 export class Main extends Component {
     render() {
         return (
             <div >
                 <Nav />
-                <div className="hero">
+                {/* <div className="hero">
                     <div className="hero__content">
                         <div className="hero__content__headerContainer">
                             <h1 className="hero__content__header">
@@ -25,8 +26,8 @@ export class Main extends Component {
                         </Link>
                     </div>
                     <div className="transparent"/>
-                </div>
-                {/* <Hero /> */}
+                </div> */}
+                <Hero />
                 <Carousel />
                 <MainCards />
             </div>

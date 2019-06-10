@@ -3,13 +3,9 @@ import TopItems from '../../Components/DashboardHome/TopItems';
 import { Route, Switch } from 'react-router-dom'; 
 import DashboardDetails from '../DashboardDetails/DashboardDetails';
 
-
 export class MainView extends Component {
-
     render() {
-    
         return (
-
             <Switch>
                 <Route 
                     path={`${this.props.match.path}/details/:item`}

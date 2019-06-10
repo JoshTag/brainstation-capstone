@@ -3,3 +3,31 @@
 .polymorph {
     fill: #0048E4;
 } 
+
+.heroTitle {
+    position: absolute;
+    margin: 250px auto 0 auto;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+}
+
+.openCTA {
+    position: absolute;
+    margin: 250px auto 0 auto;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+}
+
+#displayOpenCtaNone {
+    display: none;
+}
+
+.openedHero {
+    position: absolute;
+    right: 50px;
+    background: black;
+}
