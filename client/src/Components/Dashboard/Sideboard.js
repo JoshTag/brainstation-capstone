@@ -28,7 +28,7 @@ export class Sideboard extends Component {
                     <Link className="imageContainer" to="/">
                         <img className="dashboard__card__logo" src={logo} alt="logo" />
                     </Link>
-                    <Link to="/dashboard/" onClick={this.props.homeDashboard}>
+                    <Link to="/dashboard" onClick={this.props.homeDashboard}>
                         <h1 className="dashboard__card__header">Dashboard</h1>
                     </Link>
                     <div className="dashboard__card__sectionContainer">
