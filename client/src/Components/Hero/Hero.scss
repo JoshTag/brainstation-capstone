@@ -6,20 +6,33 @@
 
 .heroTitle {
     position: absolute;
-    margin: 250px auto 0 auto;
     left: 50%;
-    margin-left: -50px;
-    top: 50%;
+    margin-left: -420px;
+    top: 30%;
     margin-top: -50px;
+    color: white;
+
+    &__header {
+        text-align: center;
+        font-size: 60px;
+    }
+
+    &__description {
+        font-size: 34px;
+    }
 }
 
 .openCTA {
     position: absolute;
-    margin: 250px auto 0 auto;
-    left: 50%;
+    left: 48%;
     margin-left: -50px;
-    top: 50%;
+    top: 65%;
     margin-top: -50px;
+    background: white;
+    border: none;
+    border-radius: 20px;
+    height: 40px;
+    width: 160px;
 }
 
 #displayOpenCtaNone {
@@ -28,6 +41,25 @@
 
 .openedHero {
     position: absolute;
-    right: 50px;
-    background: black;
+    right: 10%;
+    top: 30%;
+
+    h3 {
+        color: $color-blue;
+        font-size: 34px;
+    }
+
+    p {
+        color: $color-blue;
+        font-size: 24px;
+    }
+
+    &__btn {
+        background: $color-blue;
+        height: 40px;
+        width: 160px;
+        border-radius: 20px;
+        text-align: center;
+        padding-top: 10px;
+    }
 }

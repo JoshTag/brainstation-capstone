@@ -34,10 +34,10 @@ export class Hero extends Component {
             <div>
                 <div ref="openHeroCTA" >
                     <div className="heroTitle"> 
-                        <h1>
+                        <h1 className="heroTitle__header">
                             Warcraft Auctions
                         </h1>
-                        <h3>
+                        <h3 className="heroTitle__description">
                             A source for World of Warcraft auction house statistics
                         </h3>
                     </div>
@@ -51,8 +51,12 @@ export class Hero extends Component {
                     <div 
                         className="openedHero"
                         ref="heroOpened">
-                        <Link 
-                            to='/dashboard'>TO DASHBOARD</Link>
+                        <h3>Lorem ipsum dolor sit amet.</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, necessitatibus!</p>
+                        <div className="openedHero__btn">
+                            <Link 
+                                to='/dashboard'>TO DASHBOARD</Link>
+                        </div>
                     </div>
                 : null }
                 <svg viewBox="0 0 200 99" >
