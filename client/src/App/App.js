@@ -1,6 +1,6 @@
 import React from 'react';
 import Main from '../Pages/Main/Main';
-import Items from '../Pages/Dashboard/Dashboard';
+import DashboardPage from '../Pages/Dashboard/Dashboard';
 import Error from '../Pages/Error/Error'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'; 
 
@@ -10,8 +10,7 @@ class App extends React.Component {
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route exact path="/itemHistory" component={Items} />
-          <Route path="/itemHistory/:item" component={Items} />
+          <Route path="/dashboard" component={DashboardPage} />
           <Route path="" component={Error} />
         </Switch>
       </BrowserRouter>

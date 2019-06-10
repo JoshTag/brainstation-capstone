@@ -3,6 +3,9 @@ import React,
 import './GraphsInfo.scss';
 
 export class GraphsInfo extends Component {
+
+
+
     render() {
 
         const { 

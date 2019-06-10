@@ -12,7 +12,7 @@ export class Nav extends Component {
                     <div className="nav__pages">
                         <p className="nav__pages__home" >Home</p> 
                         <p className="nav__pages__about" >About</p> 
-                        <Link to="/itemHistory" className="nav__pages__contact" >Profile</Link>
+                        <Link to="/dashboard" className="nav__pages__contact" >Profile</Link>
                     </div>
                 </div>
             </div>

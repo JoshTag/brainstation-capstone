@@ -78,15 +78,6 @@
     align-items: center;
 }
 
-.dashboard__card__list__items:before {
-    position:absolute;
-    width: 40px;
-    height: 40px;
-    background-color: #fff;
-    border: solid grey 7px;
-    border-radius: 20px; 
-}
-
 .imageContainer {
     display: flex;
     flex-direction: row;

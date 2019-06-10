@@ -3,7 +3,7 @@ import Nav from '../../Components/Nav/Nav';
 import './Main.scss';
 import Carousel from '../../Components/Carousel/Carousel';
 import MainCards from '../../Components/MainCards/MainCards';
-import Hero from '../../Components/Hero/Hero'
+import { Link } from 'react-router-dom';
 
 export class Main extends Component {
     render() {
@@ -20,14 +20,9 @@ export class Main extends Component {
                                 A source for World of Warcraft auction house statistics
                             </h3>
                         </div>
-                        <div className="hero__content__search">
-                            <input 
-                                className="hero__content__bar" 
-                                type="text" 
-                                placeholder="Search Item..."
-                                onChange={this.handleChange} />
-                            <button className="hero__content__btn">SEARCH</button>
-                        </div>
+                        <Link to="/dashboard" className="hero__content__btn">
+                            <p>ENTER</p>
+                        </Link>
                     </div>
                     <div className="transparent"/>
                 </div>
