@@ -4,10 +4,7 @@ import anime from 'animejs';
 import { Link } from 'react-router-dom';
 
 export class Hero extends Component {
-    state = {
-        heroOpen: false
-    }
-
+    
     openHero = () => {
         anime({
             targets: '.polymorph',
@@ -19,9 +16,6 @@ export class Hero extends Component {
             duration: 1800,
             loop: false
         });
-        this.setState({
-            heroOpen: true
-        });
         this.refs.openHeroCTA.setAttribute("id", "displayOpenCtaNone");
         anime({
             targets: '.openedHero',
@@ -32,8 +26,6 @@ export class Hero extends Component {
     }
 
     render() {
-
-        console.log(this.state.heroOpen)
 
         return (
             <div>

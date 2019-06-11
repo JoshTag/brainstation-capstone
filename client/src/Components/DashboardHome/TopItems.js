@@ -1,12 +1,35 @@
 import React, { Component } from 'react';
 import './TopItems.scss';
 import { Link } from 'react-router-dom';
+import anime from 'animejs';
 
 export class TopItems extends Component {
+
+    componentDidMount() {
+        anime({
+            targets: '.animeOne',
+            opacity: 1,
+            duration: 800,
+            translateX: -10
+        })
+        anime({
+            targets: '.animeTwo',
+            opacity: 1,
+            duration: 1000,
+            translateX: -10
+        })
+        anime({
+            targets: '.animeThree',
+            opacity: 1,
+            duration: 1200,
+            translateX: -10
+        })
+    }
+
     render() {
         return (
             <div className="dashHome">
-                <div className="dashboardCards">
+                <div className="dashboardCards animeOne">
                     <h2>Top Items</h2>
                     <div className="dashboardCards__cards">
                         <Link to={`${this.props.url}/details/109076`} className="dashboardCards__cards--center">
@@ -31,7 +54,7 @@ export class TopItems extends Component {
                         </Link>
                     </div>
                 </div>
-                <div className="dashboardCards">
+                <div className="dashboardCards animeTwo">
                     <h2>Profession Items</h2>
                     <div className="dashboardCards__cards">
                         <Link to={`${this.props.url}/details/152507`} className="dashboardCards__cards--center">
@@ -56,7 +79,7 @@ export class TopItems extends Component {
                         </Link>
                     </div>
                 </div>
-                <div className="dashboardCards">
+                <div className="dashboardCards animeThree">
                     <h2>Highest Priced</h2>
                     <div className="dashboardCards__cards">
                         <Link to={`${this.props.url}/details/152510`} className="dashboardCards__cards--center">

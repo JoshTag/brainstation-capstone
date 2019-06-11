@@ -2,6 +2,7 @@ import React,
 { Component } from 'react';
 import './GraphsInfo.scss';
 
+
 export class GraphsInfo extends Component {
     render() {
 

@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './Dashboard.scss';
 import { Route } from 'react-router-dom'; 
 
-// Page Components
-import Sideboard from '../../Components/Dashboard/Sideboard';
+import Sideboard from '../../Components/Sideboard/Sideboard';
 import MainView from '../MainView/Mainview';
 
 export class DashboardPage extends Component {

@@ -17,6 +17,11 @@ export class Sideboard extends Component {
                     <div className="dashboard__card__profileContainer">
                         <h2>Top Items</h2>
                         <Link 
+                            to='/dashboard/details/109076'
+                            className="dashboard__card__profileContainer__item" >
+                                Goblin Glider Kit
+                            </Link>
+                        <Link 
                             to="/dashboard/details/152507"
                             className="dashboard__card__profileContainer__item" >
                             Akunda's Bite
@@ -37,9 +42,9 @@ export class Sideboard extends Component {
                             Winter's Kiss
                         </Link>
                         <Link 
-                            to="/dashboard/details/152507"
+                            to="/dashboard/details/152509"
                             className="dashboard__card__profileContainer__item">
-                            Blood-Stained Bone
+                            Siren's Pollen
                         </Link>
                     </div>
                     <div>
@@ -52,23 +57,13 @@ export class Sideboard extends Component {
                             </Link>
                             <Link 
                                 className="dashboard__card__list__items dashboardAlign" 
-                                to='/dashboard/details/109076'>
-                                    Goblin Glider Kit
-                            </Link>
-                            <Link 
-                                className="dashboard__card__list__items dashboardAlign" 
-                                to='/dashboard/details/152510'>
-                                    Anchor Weed
-                            </Link>
-                            <Link 
-                                className="dashboard__card__list__items dashboardAlign" 
                                 to='/dashboard/details/152505'>
                                     Riverbud
                             </Link>
                             <Link 
                                 className="dashboard__card__list__items dashboardAlign" 
-                                to='/dashboard/details/152513'>
-                                    Platinum Ore
+                                to='/dashboard/details/152511'>
+                                    Sea Stalk
                             </Link>
                             <Link 
                                 className="dashboard__card__list__items dashboardAlign" 

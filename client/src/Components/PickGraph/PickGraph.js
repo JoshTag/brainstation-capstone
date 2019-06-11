@@ -12,19 +12,25 @@ export class PickGraph extends Component {
                 <h3>Pick a Graph for {name_enus}</h3>
                 <div className="buttonContainer">
                     <Link 
-                        to={`${this.props.match.url}/priceChart`}
-                        className="buttonContainer__btn">
-                            <p className="buttonContainer__btn__title">Price Information</p>
+                        onClick={this.openPrice}
+                        to={`${this.props.match.url}/priceChart`} >
+                            <div className="buttonContainer__btn btnHover">
+                                Price Information
+                            </div>
                     </Link>
                     <Link 
-                        to={`${this.props.match.url}/quantChart`}
-                        className="buttonContainer__btn">
-                            <p className="buttonContainer__btn__title">Quantity Information</p>
+                        onClick={this.openQuant}
+                        to={`${this.props.match.url}/quantChart`} >
+                            <div className="buttonContainer__btn btnHover">
+                                Quantity Information
+                            </div>
                     </Link>
                     <Link 
-                        to={`${this.props.match.url}/priceQuantChart`}
-                        className="buttonContainer__btn">
-                            <p className="buttonContainer__btn__title">Price Quanitity Comparison</p>
+                        onClick={this.openPriceQuant}
+                        to={`${this.props.match.url}/priceQuantChart`} >
+                            <div className="buttonContainer__btn btnHover">
+                                Price Quanitity Comparison
+                            </div>
                     </Link>
                 </div>
             </div>

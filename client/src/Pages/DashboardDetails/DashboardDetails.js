@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import GraphsInfo from '../../Components/Graphs/GraphsInfo';
+import GraphsInfo from '../../Components/GraphsInfo/GraphsInfo';
 import { Route, Switch } from 'react-router-dom'; 
 import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
@@ -67,6 +67,7 @@ export class DashboardDetails extends Component {
                                 path={`${this.props.match.url}/priceChart`}
                                 render={ (props) => 
                                     <PriceGraph 
+                                        className="testtest"
                                         {...props} 
                                         itemHistory={this.state.itemHistory}
                                         priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
