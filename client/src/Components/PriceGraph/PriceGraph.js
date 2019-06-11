@@ -52,5 +52,3 @@ export default ({ width, height, priceAvg,priceMin, priceMax, date }) => {
     </div>
 )};
 
-
-

@@ -21,22 +21,33 @@
         }
 
         &__header {
-            margin: 0 0 40px 24px
+            margin: 0 0 30px 24px
         }
 
-        &__sectionContainer {
-            margin-bottom: 24px;
+        &__profileContainer {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+
+            h2 {
+                margin: 0 0 8px 24px;
+            }
+
+            &__item {
+                margin: 3px 0;
+                padding-left: 24px;
+            }
         }
 
         &__title {
-            margin: 0 0 0 24px;
+            margin: 24px 0 8px 24px;
         }
 
         &__list {
             list-style: none;
 
             &__items { 
-                margin: 5px 0;
+                margin: 0;
                 height: 25px;
                 padding: 3px 0 0 24px;
             }
@@ -83,4 +94,10 @@
     flex-direction: row;
     align-content: center;
     justify-content: center;
+}
+
+.dashboard__card__profileContainer__items:hover {
+    background: $color-grey;
+    color: $color-black;
+    transition: 0.3s;
 }

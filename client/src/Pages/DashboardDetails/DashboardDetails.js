@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-import GraphsInfo from '../../Components/Graphs/GraphsInfo';
+import GraphsInfo from '../../Components/GraphsInfo/GraphsInfo';
+import { Route, Switch } from 'react-router-dom'; 
 import PriceGraph from '../../Components/PriceGraph/PriceGraph';
 import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
+import PickGraph from '../../Components/PickGraph/PickGraph';
 import axios from 'axios';
 
 export class DashboardDetails extends Component {
@@ -50,40 +52,55 @@ export class DashboardDetails extends Component {
     }
 
     render() {
-
-        console.log(this.props)
-        
         return (
             <div>
-            { this.state.isLoaded === true ?
-            <div>
-                <GraphsInfo 
-                    itemHistory={this.state.itemHistory} /> 
-
-                <PriceGraph 
-                    priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
-                    priceMin={this.dataCreation(this.state.itemHistory, 'pricemin')}
-                    priceMax={this.dataCreation(this.state.itemHistory, 'pricemax')}
-                    date={this.dataCreation(this.state.itemHistory, 'when')}
-                    height={150} 
-                    width={975} /> 
-
-                <QuantityGraph 
-                    quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
-                    quantMax={this.dataCreation(this.state.itemHistory, 'quantitymax')}
-                    quantMin={this.dataCreation(this.state.itemHistory, 'quantitymin')}
-                    date={this.dataCreation(this.state.itemHistory, 'when')}
-                    height={150} 
-                    width={975} />
-
-                <PriceQuantGraph 
-                    priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
-                    quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
-                    date={this.dataCreation(this.state.itemHistory, 'when')}
-                    height={150} 
-                    width={975} />
-                </div>
-                    : null }
+                { this.state.isLoaded === true ?
+                    <div>
+                        <GraphsInfo 
+                            itemHistory={this.state.itemHistory} /> 
+                        <PickGraph
+                            itemHistory={this.state.itemHistory}
+                            match={this.props.match} 
+                            />
+                        <Switch>
+                            <Route 
+                                path={`${this.props.match.url}/priceChart`}
+                                render={ (props) => 
+                                    <PriceGraph 
+                                        className="testtest"
+                                        {...props} 
+                                        itemHistory={this.state.itemHistory}
+                                        priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
+                                        priceMin={this.dataCreation(this.state.itemHistory, 'pricemin')}
+                                        priceMax={this.dataCreation(this.state.itemHistory, 'pricemax')}
+                                        date={this.dataCreation(this.state.itemHistory, 'when')}
+                                        height={150} 
+                                        width={975} /> }/>
+                            <Route 
+                                path={`${this.props.match.url}/quantChart`}
+                                render={ (props) => 
+                                    <QuantityGraph 
+                                        {...props} 
+                                        quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
+                                        quantMax={this.dataCreation(this.state.itemHistory, 'quantitymax')}
+                                        quantMin={this.dataCreation(this.state.itemHistory, 'quantitymin')}
+                                        date={this.dataCreation(this.state.itemHistory, 'when')}
+                                        height={150} 
+                                        width={975} /> }/>
+                            <Route 
+                                path={`${this.props.match.url}/priceQuantChart`}
+                                render={ (props) => 
+                                    <PriceQuantGraph 
+                                        {...props} 
+                                        itemHistory={this.state.itemHistory}
+                                        priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}
+                                        quantAvg={this.dataCreation(this.state.itemHistory, 'quantityavg')}
+                                        date={this.dataCreation(this.state.itemHistory, 'when')}
+                                        height={150} 
+                                        width={975} /> }/>
+                        </Switch>
+                    </div>
+                : null }
             </div>
         )
     }
