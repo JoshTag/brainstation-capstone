@@ -23,7 +23,12 @@ export class Hero extends Component {
             heroOpen: true
         });
         this.refs.openHeroCTA.setAttribute("id", "displayOpenCtaNone");
-
+        anime({
+            targets: '.openedHero',
+            opacity: 1,
+            duration: 800,
+            translateY: 90
+        })
     }
 
     render() {
@@ -47,18 +52,19 @@ export class Hero extends Component {
                             learn more
                     </button>
                 </div>
-                { this.state.heroOpen === true ?
-                    <div 
-                        className="openedHero"
-                        ref="heroOpened">
-                        <h3>Lorem ipsum dolor sit amet.</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorum, necessitatibus!</p>
-                        <div className="openedHero__btn">
-                            <Link 
-                                to='/dashboard'>TO DASHBOARD</Link>
-                        </div>
+                <div 
+                    className="openedHero"
+                    ref="heroOpened">
+                    <h3>A source to view World of Warcraft auction house details</h3>
+                    <p>
+                        View price history, quantity history, and compare price and quantity of auction house items <br/>
+                        to farm items on the auction to build your gold
+                    </p>
+                    <div className="openedHero__btn">
+                        <Link 
+                            to='/dashboard'>GO TO DASHBOARD</Link>
                     </div>
-                : null }
+                </div>
                 <svg viewBox="0 0 200 99" >
                     <polygon className="polymorph" points="200,99 0,99 0,0 37,0 200,0 	"/>
                 </svg>
