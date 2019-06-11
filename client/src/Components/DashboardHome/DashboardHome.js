@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './TopItems.scss';
+import './DashboardHome.scss';
 import { Link } from 'react-router-dom';
 import anime from 'animejs';
 
@@ -9,20 +9,23 @@ export class TopItems extends Component {
         anime({
             targets: '.animeOne',
             opacity: 1,
-            duration: 800,
-            translateX: -10
+            duration: 500,
+            translateY: -800,
+            easing: 'easeInOutQuart'
         })
         anime({
             targets: '.animeTwo',
             opacity: 1,
-            duration: 1000,
-            translateX: -10
+            duration: 800,
+            translateY: -800,
+            easing: 'easeInOutQuart'
         })
         anime({
             targets: '.animeThree',
             opacity: 1,
-            duration: 1200,
-            translateX: -10
+            duration: 1000,
+            translateY: -800,
+            easing: 'easeInOutQuart'
         })
     }
 

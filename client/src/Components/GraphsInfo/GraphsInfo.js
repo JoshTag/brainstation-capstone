@@ -1,9 +1,27 @@
 import React, 
 { Component } from 'react';
 import './GraphsInfo.scss';
-
+import anime from 'animejs'
 
 export class GraphsInfo extends Component {
+    
+    componentDidMount() {
+        anime({
+            targets: '.animateOne',
+            opacity: 1,
+            duration: 300,
+            translateX: -500,
+            easing: 'easeInOutQuart'
+        })
+        anime({
+            targets: '.animateTwo',
+            opacity: 1,
+            duration: 500,
+            translateX: -500,
+            easing: 'easeInOutQuart'
+        })
+    }
+
     render() {
 
         const { 
@@ -29,7 +47,7 @@ export class GraphsInfo extends Component {
                         Current Info for {when}
                     </h3>
                 </div>
-                <div className="graphInfo">
+                <div className="graphInfo animateOne">
                     <div className="graphInfo__card">
                         <h2 className="graphInfo__card__title">Average Price</h2>
                         <p className="graphInfo__card__units">{priceavg} g</p>                            
@@ -47,7 +65,7 @@ export class GraphsInfo extends Component {
                         <p className="graphInfo__card__units">{pricestart} g</p>            
                     </div>
                 </div>
-                <div className="graphInfo">
+                <div className="graphInfo animateTwo">
                     <div className="graphInfo__card">
                         <h2 className="graphInfo__card__title">Average Quantity</h2>
                         <p className="graphInfo__card__units">{quantityavg}</p>                            
