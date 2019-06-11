@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import TopItems from '../../Components/DashboardHome/TopItems';
+import TopItems from '../../Components/DashboardHome/DashboardHome';
 import { Route, Switch } from 'react-router-dom'; 
 import DashboardDetails from '../DashboardDetails/DashboardDetails';
 

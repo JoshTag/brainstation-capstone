@@ -40,7 +40,6 @@ export class DashboardDetails extends Component {
             });
         }
     }
-    
 
     dataCreation = (state, key) => {
         const arr = [] 
@@ -67,7 +66,6 @@ export class DashboardDetails extends Component {
                                 path={`${this.props.match.url}/priceChart`}
                                 render={ (props) => 
                                     <PriceGraph 
-                                        className="testtest"
                                         {...props} 
                                         itemHistory={this.state.itemHistory}
                                         priceAvg={this.dataCreation(this.state.itemHistory, 'priceavg')}

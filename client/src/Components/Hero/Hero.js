@@ -26,7 +26,7 @@ export class Hero extends Component {
     }
 
     render() {
-
+ 
         return (
             <div>
                 <div ref="openHeroCTA" >
@@ -58,7 +58,7 @@ export class Hero extends Component {
                     </div>
                 </div>
                 <svg viewBox="0 0 200 99" >
-                    <polygon className="polymorph" points="200,99 0,99 0,0 37,0 200,0 	"/>
+                    <polygon className="polymorph" points="200,99 0,99 0,0 37,0 200,0"/>
                 </svg>
             </div>
         )

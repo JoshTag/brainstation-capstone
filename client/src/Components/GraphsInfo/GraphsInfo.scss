@@ -16,6 +16,8 @@
     padding: 0 0 30px;
     display: flex;
     justify-content: space-between;
+    position: relative;
+    left: 500px;
 
     &__card {
         width: 275px;

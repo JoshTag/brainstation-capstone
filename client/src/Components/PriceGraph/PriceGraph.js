@@ -2,7 +2,7 @@ import React from 'react';
 import { Line } from 'react-chartjs-2';
 import './PriceGraph.scss';
 
-export default ({ width, height, priceAvg,priceMin, priceMax, date }) => { 
+export default ({ width, height, priceAvg, priceMin, priceMax, date }) => { 
     const priceData =  {
         labels: date,
         easing: 'easeInBounce',

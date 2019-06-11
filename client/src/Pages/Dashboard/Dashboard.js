@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './Dashboard.scss';
 import { Route } from 'react-router-dom'; 
-
 import Sideboard from '../../Components/Sideboard/Sideboard';
 import MainView from '../MainView/Mainview';
 
@@ -9,7 +8,7 @@ export class DashboardPage extends Component {
     render() {
         return (
             <div className="itemMain">
-                <Sideboard />
+                <Sideboard className="sideNav" />
                 <div className="dashboardBody">
                     <div className="itemSearch">
                         <input className="itemSearch__search" type="text" placeholder="search"></input>
