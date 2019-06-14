@@ -6,7 +6,6 @@ const itemHistory = [];
 fs.createReadStream('./Data/itemHistory.csv')  
   .pipe(csv())
   .on('data', (row) => {
-    console.log(row);
     itemHistory.push(row);
   })
   .on('end', () => {
