@@ -2,7 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const itemHistory = require('./Routes/WowDataRoute')
 const app = express();
-const port = 8080;
+const port = process.env.PORT;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
