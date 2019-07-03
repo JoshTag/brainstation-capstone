@@ -6,10 +6,17 @@ const port = process.env.PORT || 8080;
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-app.use(cors());
+
+
+const corsConfig = {
+  origin: ['http://localhost:3000', 'https://warcraftauctions.netlify.com/']
+}
+app.use(cors(corsConfig));
 
 app.use('/details', itemHistory);
 
 app.listen(port, () => {
     console.log(`listening on http://localhost:${port}`);
 });
+
+// ${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}
