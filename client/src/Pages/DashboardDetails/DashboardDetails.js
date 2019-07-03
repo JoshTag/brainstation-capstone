@@ -7,6 +7,8 @@ import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
 import PickGraph from '../../Components/PickGraph/PickGraph';
 import axios from 'axios';
 
+const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}/ping`;
+
 export class DashboardDetails extends Component {
     state = {
         itemHistory: [],
@@ -14,7 +16,7 @@ export class DashboardDetails extends Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:8080/details/${this.props.match.params.item}`)
+        axios.get(`${pingURL}/details/${this.props.match.params.item}`)
         .then(response => {
             this.setState({
                 itemHistory: response.data,
@@ -28,7 +30,7 @@ export class DashboardDetails extends Component {
 
     componentDidUpdate(prevProps, prevState) {
         if (this.props.match.params.item && prevProps.match.params.item !== this.props.match.params.item) {
-            axios.get(`http://localhost:8080/details/${this.props.match.params.item}`)
+            axios.get(`${pingURL}/details/${this.props.match.params.item}`)
             .then(response => {
                 this.setState({
                     itemHistory: response.data,
