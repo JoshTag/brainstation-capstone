@@ -7,7 +7,7 @@ import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
 import PickGraph from '../../Components/PickGraph/PickGraph';
 import axios from 'axios';
 
-const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}/ping`;
+const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}`;
 
 export class DashboardDetails extends Component {
     state = {
