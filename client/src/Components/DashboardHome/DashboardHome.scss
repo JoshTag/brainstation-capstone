@@ -11,18 +11,22 @@
         flex-direction: row;
         justify-content: space-between;
 
-        a {
-            text-decoration: none;
-            color: $color-black;
-            width: 225px;
-        }
+        // a {
+        //     text-decoration: none;
+        //     color: $color-black;
+        //     width: 225px;
+        // }
 
         &--center {
+            text-decoration: none;
+            color: $color-black;
+            width: 17%;
+            height: 80px;
             text-align: center;
             border-radius: 10px;
             padding: 10px 20px;
             background: white;
-            width: 160px;
+
 
             h3 {
                 margin: 0 0 8px 0;
