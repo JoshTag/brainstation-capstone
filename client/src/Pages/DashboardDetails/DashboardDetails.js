@@ -6,6 +6,8 @@ import QuantityGraph from '../../Components/QuantityGraph/QuantityGraph';
 import PriceQuantGraph from '../../Components/PriceQuantGraph/PriceQuantGraph';
 import PickGraph from '../../Components/PickGraph/PickGraph';
 import axios from 'axios';
+import loading from '../../Assets/Logo/loadingsnake.gif'
+import './DashboardDetails.scss'
 
 const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}`;
 
@@ -100,7 +102,10 @@ export class DashboardDetails extends Component {
                                         width={975} /> }/>
                         </Switch>
                     </div>
-                : null }
+                    : <div className="loading-container">
+                    <h1>LOADING...</h1>
+                    <img src={loading} alt="Loading Screen Animation"/>
+                    </div>}
             </div>
         )
     }
