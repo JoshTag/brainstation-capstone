@@ -8,12 +8,12 @@
 
     &__card {
         color: white;
-        border-radius: 30px;
+        border-radius: 20px;
         background-color: $color-blue;
         margin: 40px 0 40px 34px;
         height: 90%;
+        box-shadow: 3px 3px 11px 1px #8f8f8f;
         
-
         &__logo {
             width: 225px;
             height: 110px;

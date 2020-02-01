@@ -4,8 +4,6 @@ import DashboardPage from '../Pages/Dashboard/Dashboard';
 import Error from '../Pages/Error/Error'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'; 
 
-const pingURL = `${process.env.REACT_APP_BACKEND_SERVER || 'http://localhost:8080'}/ping`;
-
 class App extends React.Component {
   render() {
     return (
