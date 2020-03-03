@@ -47,6 +47,7 @@ export class MainCards extends Component {
                         <li><Link to='/dashboard/details/163224'>Battle Potion of Strength</Link></li>
                     </ul>
                 </div>
+                <small>&copy; 2020 <a href="https://www.joshtag.com/">Joshua Taguicana</a></small>
             </div>
         )
     }
