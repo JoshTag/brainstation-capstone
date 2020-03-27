@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="850px" height="430px" viewBox="0 0 850 430" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+    <title>logo</title>
+    <desc>Created with Sketch.</desc>
+    <g id="logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M472,31 L413,90" id="Line-3" stroke="#F1F1F1" stroke-width="2" stroke-linecap="square"></path>
+        <path d="M111.5,126.5 L346.5,126.5" id="Line-2" stroke="#F1F1F1" stroke-width="12" stroke-linecap="square"></path>
+        <path d="M504,127 L739,127" id="Line-2" stroke="#F1F1F1" stroke-width="12" stroke-linecap="square"></path>
+        <rect id="Rectangle" stroke="#F1F1F1" stroke-width="12" x="11" y="165" width="828" height="201"></rect>
+        <path d="M111,409 L739,409" id="Line" stroke="#F1F1F1" stroke-width="12" stroke-linecap="square"></path>
+        <polygon id="Path" stroke="#F1F1F1" stroke-width="4" points="379.738056 107.010891 359.460906 107.010891 359.460906 143.748486 395.849202 143.748486 395.849202 123.273326 408.752135 110.781987 421.929836 123.273326 421.929836 133.618811 442.78878 133.618811 442.78878 113.200383 432.96057 113.200383 391.249355 71.6337824 391.249355 61.2326766 369.722959 61.2326766 369.722959 81.0559605 379.738056 81.0559605 392.741585 94.2742596"></polygon>
+        <polygon id="Path-2" stroke="#F1F1F1" points="374.769904 119.107865 382.872661 122.118718 383.894773 129.794359 377.752538 135.246418 370.307433 132.36853 368.904123 124.516399"></polygon>
+        <polygon id="Path-3" stroke="#F1F1F1" stroke-width="4" points="425 105.198253 489.750823 40.2475914 489.750823 14.9678279 462.407836 14.9678279 399.048225 78.1765116"></polygon>
+        <text id="Warcraft-Auctions" font-family="LifeCraft" font-size="90" font-weight="normal" fill="#F1F1F1">
+            <tspan x="125" y="295">Warcraft Auctions</tspan>
+        </text>
+    </g>
+</svg>

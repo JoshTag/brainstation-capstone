@@ -1,38 +1,78 @@
 @import '../../Styles/scss/Master';
 
 .nav {
-    height: 145px;
+    height: 200px;
     background: $color-blue;
     color: $color-white;
 
+    @include tablet {
+        height: 150px;
+    }
+
     &__container {
         display: flex;
+        flex-direction: column;
         justify-content: space-between;
-        padding: 0 180px 0;
         height: 100%;
+
+        @include tablet {
+            flex-direction: row;
+            padding: 0 24px;
+        }
+        @include laptop {
+            padding: 0 180px;
+        }
     }
 
     &__logo {
         height: 110px;
-        position: relative;
-        top: 12px;
+
+        @include tablet {
+            margin-top: 9px;
+        }
     }
 
     &__pages {
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
-        width: 300px;
+        justify-content: space-around;
+        width: 100%;
         margin: 0;
         align-items: center;
+        margin-bottom: 25px;
 
-        &__home, &__about, &__contact {
+        @include tablet {
+            margin-bottom: 0;
+            width: 450px;
+        }
+
+        &--links {
             font-family: $font-primary;
             margin: 0;
-            font-size: 24px;
+            font-size: 18px;
             background: $color-blue;
             border: none;
             color: $color-white;
+            position: relative;
+
+            &:hover {
+                cursor: pointer;
+            }
+
+            &:after {
+                content: " ";
+                width: 0px;
+                height: 2px;
+                position: absolute;
+                background-color: #fff;
+                left: 0;
+                bottom: -3px;
+                transition: .3s;
+            }
+
+            &:hover:after {
+                width: 100%;
+            }
         }
     }
 }

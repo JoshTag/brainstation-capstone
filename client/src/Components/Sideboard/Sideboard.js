@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './Sideboard.scss';
-import logo from '../../Assets/Logo/Logo.png';
+import logo from '../../Assets/Logo/Logo.svg';
 import { Link } from 'react-router-dom';
 
 export class Sideboard extends Component {

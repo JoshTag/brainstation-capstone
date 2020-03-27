@@ -1,9 +1,21 @@
-@import '../../Styles/scss/Master';
+@import "../../Styles/scss/Master";
+
+.container {
+  padding: 40px;
+  background: #419be0;
+}
+
+.slick-slide img {
+  margin: auto;
+}
 
 .carousel {
-    height: 120px;
+  height: 120px;
+  overflow: hidden;
 
-    &__item {
-        text-align: center;
-    }
+
+  &__item {
+    text-align: center;
+    margin-top: 10px;
+  }
 }

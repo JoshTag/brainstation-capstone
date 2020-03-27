@@ -1,84 +1,191 @@
-@import '../../Styles/scss/Master';
+@import "../../Styles/scss/Master";
 
 .polymorph {
-    fill: #0048E4;
-} 
+  fill: #0048e4;
+  display: none;
+
+  @include laptop {
+    display: flex;
+  }
+}
+
+.hero {
+  height: 70vh;
+
+  @include laptop {
+    height: auto;
+  }
+}
 
 .heroTitle {
-    position: absolute;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  width: 100%;
+  top: 35%;
+
+  @include laptop {
     left: 50%;
-    margin-left: -420px;
-    top: 40%;
-    margin-top: -50px;
+    transform: translateX(-50%);
+    top: 35%;
     color: white;
+  }
 
-    &__header {
-        text-align: center;
-        font-size: 60px;
-    }
+  &__header {
+    text-align: center;
+    font-size: 24px;
+    color: #0048e4;
+    width: 100%;
 
-    &__description {
-        font-size: 34px;
+    @include tablet {
+      font-size: 38px;
     }
+    @include laptop {
+      color: #fff;
+      font-size: 42px;
+    }
+  }
+
+  &__description {
+    text-align: center;
+    font-size: 14px;
+    color: #0048e4;
+    width: 100%;
+    padding: 0 16px;
+
+    @include tablet {
+      font-size: 18px;
+    }
+    @include laptop {
+      color: #fff;
+      font-size: 24px;
+    }
+  }
 }
 
 .openCTA {
-    position: absolute;
-    left: 46%;
-    margin-left: -50px;
-    top: 75%;
-    margin-top: -50px;
-    background: $color-blue;
-    border: 1px solid white;
-    border-radius: 5px;
-    height: 50px;
-    width: 240px;
-    font-size: 20px;
-    color: white;
+  position: absolute;
+  background: $color-blue;
+  border: 1px solid white;
+  border-radius: 5px;
+  height: 50px;
+  width: 240px;
+  font-size: 20px;
+  color: white;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 60%;
+
+  @include laptop {
+    top: 65%;
+  }
 }
 
 #displayOpenCtaNone {
-    display: none;
+  display: none;
 }
 
 .openedHero {
+  position: absolute;
+  width: 90%;
+  padding: 0 5%;
+  opacity: 0;
+
+  @include tablet {
+    width: 80%;
+    padding: 0 10%;
+  }
+
+  @include laptop {
+    left: 30vw;
+    width: 60vw;
+    padding: 0;
+  }
+
+  &__header {
     position: absolute;
-    right: 10%;
-    transform: translateY(-800px);
+    color: $color-blue;
+    font-size: 24px;
+    opacity: 0;
+    margin: 0;
 
-    h3 {
-        color: $color-blue;
-        font-size: 34px;
+    @include tablet {
+      font-size: 28px;
     }
 
-    p {
-        color: $color-blue;
-        font-size: 24px;
+    @include laptop {
+      top: -2rem;
+      font-size: 34px;
     }
 
-    &__btn {
-        background: $color-blue;
-        height: 40px;
-        width: 180px;
-        border-radius: 5px;
-        text-align: center;
-        padding-top: 10px;
+    @include desktop {
+      top: 0rem;
+      font-size: 38px;
     }
+  }
+
+  &__description {
+    position: absolute;
+    color: $color-blue;
+    font-size: 11px;
+    opacity: 0;
+    top: 10rem;
+
+    @include tablet {
+      top: 7rem;
+      font-size: 16px;
+    }
+    @include laptop {
+      top: 4.5rem;
+      font-size: 18px;
+    }
+    @include desktop {
+      top: 6rem;
+      font-size: 24px;
+    }
+  }
+
+  &__btn {
+    opacity: 0;
+    position: absolute;
+    background: $color-blue;
+    height: 40px;
+    width: 180px;
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 10px;
+    top: 16rem;
+
+    @include tablet {
+      top: 15rem;
+      font-size: 16px;
+    }
+    @include laptop {
+      top: 13.5rem;
+      font-size: 16px;
+    }
+    @include desktop {
+      top: 17rem;
+    }
+  }
 }
 
 .openCTA:hover {
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+
+  @include laptop {
     background: white;
     color: $color-blue;
-    transition: all .2s ease-in-out; 
-    cursor: pointer;
+  }
 }
 
 .openedHero__btn:hover {
-    background: white;
-    transition: all .2s ease-in-out; 
-    border: 1px $color-blue solid;
+  background: white;
+  transition: all 0.2s ease-in-out;
+  border: 1px $color-blue solid;
 
-    a {
-        color: $color-blue;
-    }
+  a {
+    color: $color-blue;
+  }
 }
