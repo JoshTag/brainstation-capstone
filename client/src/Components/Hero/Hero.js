@@ -12,21 +12,45 @@ export class Hero extends Component {
         { value: "200,99 0,99 0,0 6,0 49,61" }
       ],
       easing: "easeOutQuad",
-      duration: 1800,
+      duration: 2400,
       loop: false
     });
     this.refs.openHeroCTA.setAttribute("id", "displayOpenCtaNone");
     anime({
       targets: ".openedHero",
+      easing: "easeOutQuad",
       opacity: 1,
-      duration: 900,
-      translateY: 90
+      duration: 1600,
+    });
+    anime({
+      targets: ".openedHero__header",
+      easing: "easeOutQuad",
+      opacity: 1,
+      duration: 800,
+      translateY: 50,
+      delay: 200
+    });
+    anime({
+      targets: ".openedHero__description",
+      easing: "easeOutQuad",
+      opacity: 1,
+      duration: 800,
+      translateY: 50,
+      delay: 400
+    });
+    anime({
+      targets: ".openedHero__btn",
+      easing: "easeOutQuad",
+      opacity: 1,
+      duration: 800,
+      translateY: 50,
+      delay: 600
     });
   };
 
   render() {
     return (
-      <div>
+      <div className="hero">
         <div ref="openHeroCTA">
           <div className="heroTitle">
             <h1 className="heroTitle__header">Warcraft Auctions</h1>
@@ -39,11 +63,10 @@ export class Hero extends Component {
           </button>
         </div>
         <div className="openedHero" ref="heroOpened">
-          <h3>A Source to View World of Warcraft Auction House Details</h3>
-          <p>
+          <h3 className="openedHero__header">A Source to View World of Warcraft Auction House Details</h3>
+          <p className="openedHero__description">
             View price history, quantity history, and compare price and quantity
-            of auction house items <br />
-            to farm items on the auction house to build your gold
+            of auction house items to farm items on the auction house to build your gold
           </p>
           <div className="openedHero__btn">
             <Link to="/dashboard">GO TO DASHBOARD</Link>
