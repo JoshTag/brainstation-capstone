@@ -1,4 +1,4 @@
-@import '../../Styles/scss/Master';
+@import './../../Styles/scss/Master';
 
 .nav {
     height: 200px;
@@ -25,10 +25,15 @@
     }
 
     &__logo {
-        height: 110px;
+        width: 210px;
+        margin: 10px auto 0;
 
         @include tablet {
-            margin-top: 9px;
+            height: 110px;
+            margin: 9px 10px 0;
+        }
+        @include laptop {
+            margin: 9px 0 0;
         }
     }
 

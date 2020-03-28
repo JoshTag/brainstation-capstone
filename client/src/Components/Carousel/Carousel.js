@@ -8,20 +8,20 @@ export class Carousel extends Component {
       dots: false,
       infinite: true,
       autoplay: true,
-      speed: 1500,
-      autoplaySpeed: 1500,
+      speed: 1800,
+      autoplaySpeed: 1800,
       cssEase: "linear",
       pauseOnHover: true,
       slidesToShow: 6,
       slidesToScroll: 1,
-      initialSlide: 1,
+      initialSlide: 0,
       responsive: [
          {
            breakpoint: 1024,
            settings: {
              slidesToShow: 4,
              slidesToScroll: 1,
-             initialSlide: 1,
+             initialSlide: 0,
            }
          },
          {
@@ -29,7 +29,7 @@ export class Carousel extends Component {
            settings: {
              slidesToShow: 2,
              slidesToScroll: 1,
-             initialSlide: 1
+             initialSlide: 0
            }
          }
        ]

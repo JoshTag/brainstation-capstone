@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import GraphsInfo from "../../Components/GraphsInfo/GraphsInfo";
+import GraphsInfo from "./../../Components/GraphsInfo/GraphsInfo";
 import { Route, Switch } from "react-router-dom";
-import PriceGraph from "../../Components/PriceGraph/PriceGraph";
-import QuantityGraph from "../../Components/QuantityGraph/QuantityGraph";
-import PriceQuantGraph from "../../Components/PriceQuantGraph/PriceQuantGraph";
-import PickGraph from "../../Components/PickGraph/PickGraph";
+import PriceGraph from "./../../Components/PriceGraph/PriceGraph";
+import QuantityGraph from "./../../Components/QuantityGraph/QuantityGraph";
+import PriceQuantGraph from "./../../Components/PriceQuantGraph/PriceQuantGraph";
+import PickGraph from "./../../Components/PickGraph/PickGraph";
 import axios from "axios";
-import loading from "../../Assets/Logo/loadingsnake.gif";
+import loading from "./../../Assets/Logo/loadingsnake.gif";
 import "./DashboardDetails.scss";
 
 const pingURL = `${process.env.REACT_APP_BACKEND_SERVER ||

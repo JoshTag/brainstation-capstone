@@ -1,25 +1,21 @@
 @import "./slick-theme";
 @import "./slick";
+@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
 
 // Fonts
 @font-face {
     font-family: "Warcraft";
-    src:    url('../../Assets/Fonts/LifeCraft_Font.ttf') format('opentype'),
+    src: url('./../../Assets/Fonts/LifeCraft_Font.ttf') format('truetype'),
 }
 
 @font-face {
     font-family: "Ubuntu";
-    src:    url('../../Assets/Fonts/Ubuntu-Regular.ttf') format('opentype'),
+    src: url('./../../Assets/Fonts/Ubuntu-Regular.ttf') format('truetype'),
 }
 
 @font-face {
     font-family: 'Roboto', sans-serif;
-    src:    url('../../Assets/Fonts/Roboto-Medium.ttf') format('opentype'),
-}
-
-@font-face {
-    font-family: 'Cinzel', serif;
-    src:    url('../../Assets/Fonts/Cinzel-Regular.ttf') format('truetype'),
+    src: url('./../../Assets/Fonts/Roboto-Medium.ttf') format('truetype'),
 }
 
 // Colors
