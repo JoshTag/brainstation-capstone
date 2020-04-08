@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const itemHistory = require('./Routes/WowDataRoute')
+const itemHistory = require('./Routes/ItemRoutes')
 const app = express();
 const port = process.env.PORT || 8080;
 
@@ -16,5 +16,5 @@ app.use(cors(corsConfig));
 app.use('/details', itemHistory);
 
 app.listen(port, () => {
-    console.log(`listening on http://localhost:${port}`);
+    console.log(`|*******************************chilling on http://localhost:${port}*******************************|`);
 });
