@@ -1,6 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const itemHistory = require('./Routes/ItemRoutes')
+const realm = require('./Router/Realms')
+const items = require('./Router/Items')
 const app = express();
 const port = process.env.PORT || 8080;
 
@@ -13,7 +14,8 @@ const corsConfig = {
 }
 app.use(cors(corsConfig));
 
-app.use('/details', itemHistory);
+app.use('/realm', realm);
+app.use('/items', items);
 
 app.listen(port, () => {
     console.log(`|*******************************chilling on http://localhost:${port}*******************************|`);
