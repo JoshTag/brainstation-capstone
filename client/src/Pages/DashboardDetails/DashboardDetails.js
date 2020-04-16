@@ -11,6 +11,7 @@ import "./DashboardDetails.scss";
 const pingURL = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:8080";
 
 const DashboardDetails = props => {
+  const [loading, setLoading] = useState(false);
   const [top, setTop] = useState([]);
   const [highestPriced, setHighestPriced] = useState([]);
 
@@ -23,87 +24,61 @@ const DashboardDetails = props => {
         axios.get(`${pingURL}/items/price/${realmID}`)
       ])
       .then(res => {
-        setTop(res[0])
-        setHighestPriced(res[1])
-      });
+        console.log("data")
+        setTop(res[0].data);
+        setHighestPriced(res[1].data);
+      })
+      .then(() => setLoading(true))
+      .catch(err => alert(err));
   }, [realmID]);
+  console.log(top);
 
   let realmName = props.realms.find(realm => {
     return Number(props.match.params.realmID) === realm.id;
   });
+
+  window.scrollTo(0, 0);
+  console.log(loading)
 
   if (!realmName) {
     return null;
   }
   return (
     <div>
-      <h1>{realmName.name}</h1>
-      <h2>Top Items</h2>
-      
+      {loading ? 
+      <>
+        <h1>{realmName.name}</h1>
       <div>
-        {/* <GraphsInfo itemHistory={this.state.itemHistory} /> */}
-        {/* <PickGraph
-              // itemHistory={this.state.itemHistory}
-              match={this.props.match}
-            /> */}
-        <Switch>
-          {/* <Route
-            path={`${this.props.match.url}/priceChart`}
-            render={props => (
-              <PriceGraph
-                {...props}
-                // itemHistory={this.state.itemHistory}
-                priceAvg={this.dataCreation(this.state.itemHistory, "priceavg")}
-                priceMin={this.dataCreation(this.state.itemHistory, "pricemin")}
-                priceMax={this.dataCreation(this.state.itemHistory, "pricemax")}
-                date={this.dataCreation(this.state.itemHistory, "when")}
-                height={150}
-                width={975}
-              />
-            )}
-          />
-          <Route
-            path={`${this.props.match.url}/quantChart`}
-            render={props => (
-              <QuantityGraph
-                {...props}
-                quantAvg={this.dataCreation(
-                  this.state.itemHistory,
-                  "quantityavg"
-                )}
-                quantMax={this.dataCreation(
-                  this.state.itemHistory,
-                  "quantitymax"
-                )}
-                quantMin={this.dataCreation(
-                  this.state.itemHistory,
-                  "quantitymin"
-                )}
-                date={this.dataCreation(this.state.itemHistory, "when")}
-                height={150}
-                width={975}
-              />
-            )}
-          />
-          <Route
-            path={`${this.props.match.url}/priceQuantChart`}
-            render={props => (
-              <PriceQuantGraph
-                {...props}
-                // itemHistory={this.state.itemHistory}
-                priceAvg={this.dataCreation(this.state.itemHistory, "priceavg")}
-                quantAvg={this.dataCreation(
-                  this.state.itemHistory,
-                  "quantityavg"
-                )}
-                date={this.dataCreation(this.state.itemHistory, "when")}
-                height={150}
-                width={975}
-              />
-            )}
-          /> */}
-        </Switch>
+        <h2>Top Items</h2>
+        <ul>
+          {top.map(item => {
+            return (
+              <li key={item.item}>
+                <h3>Item: {item.name_enus}</h3>
+                <p>Quantity Avg: {item.quantityavg}</p>
+                <p>Item Class: {item.name_Enus}</p>
+              </li>
+            );
+          })}
+        </ul>
       </div>
+      <div>
+        <h2>Highest Priced Items</h2>
+        <ul>
+          {highestPriced.map(item => {
+            return (
+              <li key={item.item}>
+                <h3>Item: {item.name_enus}</h3>
+                <p>Price Avg: {item.priceavg}</p>
+                <p>Item Class: {item.name_Enus}</p>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
+      </>
+      : <h1>loading...</h1>
+      }
     </div>
   );
 };

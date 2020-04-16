@@ -21,8 +21,8 @@ const highestPricedItem = (req, res) => {
 
   let sql = `
   SELECT ihd.item, i.name_enus,
-    MAX(ihd.when), ihd.priceavg,
-    r.id, r.name, isc.name_Enus
+    ihd.priceavg, r.id, r.name,
+    isc.name_Enus
   FROM tblItemHistoryDaily ihd
   JOIN tblRealm r
     ON ihd.house = r.house
@@ -75,8 +75,8 @@ const topItems = (req, res) => {
 
   let sql = `
   SELECT ihd.item, i.name_enus,
-    MAX(ihd.when), ihd.quantityavg,
-    r.id, r.name, isc.name_Enus
+    ihd.quantityavg, r.id,
+    r.name, isc.name_Enus
   FROM tblItemHistoryDaily ihd
   JOIN tblRealm r
     ON ihd.house = r.house
