@@ -1,6 +1,6 @@
 @import "./slick-theme";
 @import "./slick";
-@import url('https://fonts.googleapis.com/css?family=Cinzel&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+SC&display=swap');
 
 // Fonts
 @font-face {
@@ -19,7 +19,7 @@
 }
 
 // Colors
-$font-primary: 'Cinzel', serif;
+$font-primary: 'IM Fell French Canon SC', serif;
 $font-warcraft: "Warcraft";
 
 $color-black: #323232;
@@ -37,6 +37,10 @@ $color-grey: #eeeeee;
 body {
     font-family: $font-primary;
     margin: 0;
+}
+
+a {
+  text-decoration: none;
 }
 
 // Media Queries

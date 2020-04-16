@@ -1,23 +1,22 @@
-import React, { Component } from 'react';
-import TopItems from '../../Components/DashboardHome/DashboardHome';
-import { Route, Switch } from 'react-router-dom'; 
-import DashboardDetails from '../DashboardDetails/DashboardDetails';
+import React from "react";
+import DashboardHome from "../../Components/DashboardHome/DashboardHome";
+import { Route, Switch } from "react-router-dom";
+import DashboardDetails from "../DashboardDetails/DashboardDetails";
 
-export class MainView extends Component {
-    render() {
-        return (
-            <Switch>
-                <Route 
-                    path={`${this.props.match.path}/details/:item`}
-                    render={ (props) => <DashboardDetails 
-                        {...props}
-                        itemHistory={this.props.itemHistory} />} />
-
-                <Route 
-                    render= { () => <TopItems url={this.props.match.url} /> } />
-            </Switch>
-        )
-    }
-}
+const MainView = (props) => {
+  // console.log(props)
+  let realms = props.realms
+  return (
+    <Switch>
+      <Route
+        path={`${props.match.path}/details/:realmID`}
+        render={(props) => (
+          <DashboardDetails {...props} realms={realms}/>
+        )}
+      />
+      <Route render={() => <DashboardHome realms={props.realms} />} />
+    </Switch>
+  );
+};
 
 export default MainView;
