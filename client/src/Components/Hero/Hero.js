@@ -63,7 +63,7 @@ export class Hero extends Component {
           </button>
         </div>
         <div className="openedHero" ref="heroOpened">
-          <h3 className="openedHero__header">A Source to View World of Warcraft Auction House Details</h3>
+          <h3 className="openedHero__header">A Source To View World of Warcraft Auction House Details</h3>
           <p className="openedHero__description">
             View price history, quantity history, and compare price and quantity
             of auction house items to farm items on the auction house to build your gold

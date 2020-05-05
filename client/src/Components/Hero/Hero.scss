@@ -1,4 +1,4 @@
-@import "../../Styles/scss/Master";
+@import "./../../Styles/scss/Master";
 
 .polymorph {
   fill: #0048e4;
@@ -64,6 +64,7 @@
 }
 
 .openCTA {
+  font-family: "Cinzel";
   position: absolute;
   background: $color-blue;
   border: 1px solid white;
@@ -166,6 +167,10 @@
     }
     @include desktop {
       top: 17rem;
+    }
+
+    & a {
+      color: #fff;
     }
   }
 }

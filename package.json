@@ -8,7 +8,9 @@
     "csv": "^5.1.1",
     "csv-parse": "^4.4.3",
     "csv-parser": "^2.3.0",
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1"
   },
   "devDependencies": {},
   "scripts": {
