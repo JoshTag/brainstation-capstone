@@ -1,0 +1,101 @@
+@import "../../Styles/scss/Master";
+
+.loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-items: center;
+  margin-top: 150px;
+}
+
+.dashboard-details {
+  background-color: $color-grey;
+
+  &__header {
+    width: 260px;
+    margin: 0 auto 1rem;
+    padding: 2rem 0 0;
+    text-align: center;
+
+    @include tablet {
+      width: 400px;
+      font-size: 2rem;
+    }
+  }
+
+  &__search {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 1rem auto 2rem;
+    width: 300px;
+
+    & input:nth-of-type(1) {
+      width: 200px;
+      height: 30px;
+      padding-left: 10px;
+      border: 1px solid $color-blue;
+      border-radius: 5px;
+    }
+
+    & input:nth-of-type(2) {
+      width: 80px;
+      height: 30px;
+      padding-left: 10px;
+      border: 1px solid $color-blue;
+      border-radius: 5px;
+    }
+  }
+
+  &__lists {
+    width: 300px;
+    margin: 0 auto;
+    padding-bottom: 5rem;
+    display: flex;
+    flex-direction: column;
+
+    @include tablet {
+      width: 700px;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    @include laptop {
+      width: 1000px;
+    }
+
+    & ul {
+      list-style: none;
+      padding: 0;
+
+      @include tablet {
+        width: 200px;
+      }
+
+      @include laptop {
+        width: 300px;
+      }
+
+      & > li {
+        margin: 1.5rem 0;
+      }
+
+      & > .search-items {
+        margin: 0.5rem 0;
+      }
+
+      & > li > a {
+        text-decoration: none;
+        color: $color-black;
+      }
+      & > li > a:hover {
+        cursor: pointer;
+        color: $color-blue;
+      }
+
+      & > li > a > * {
+        margin: 0.5rem 0;
+      }
+    }
+  }
+}

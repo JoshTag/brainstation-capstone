@@ -1,47 +1,43 @@
-import React, { Component } from "react";
+import React from "react";
 import "./DashboardHome.scss";
 import { Link } from "react-router-dom";
-import anime from "animejs";
+import loading from "./../../Assets/Logo/loadingsnake.gif"
 
-const DashboardHome = ({realms}) => {
-  // componentDidMount() {
-  //     anime({
-  //         targets: '.animeOne',
-  //         opacity: 1,
-  //         duration: 500,
-  //         translateY: -800,
-  //         easing: 'easeInOutQuart'
-  //     })
-  //     anime({
-  //         targets: '.animeTwo',
-  //         opacity: 1,
-  //         duration: 800,
-  //         translateY: -800,
-  //         easing: 'easeInOutQuart'
-  //     })
-  //     anime({
-  //         targets: '.animeThree',
-  //         opacity: 1,
-  //         duration: 1000,
-  //         translateY: -800,
-  //         easing: 'easeInOutQuart'
-  //     })
-  // }
+const DashboardHome = ({ realms, constRealms, setRealms, search }) => {
+  console.log(realms);
+
+  const sortRealms = realms.sort((a, b) => {
+    return a.name > b.name ? 1 : -1;
+  });
 
   return (
-    <div>
-      <h2>Choose Your Realm</h2>
-			<ul>
-      {realms.map(realm => {
-				return (
-					<li key={"realm" + realm.id}>
-						<Link to={`/dashboard/details/${realm.id}`}>
-							{realm.name}
-						</Link>
-					</li>
-				)
-			})}
-			</ul>
+    <div className="dashboard-home">
+      <h2 className="dashboard-home__header">Choose Your Realm</h2>
+      <form className="search">
+        <input
+          placeholder="Search Realm..."
+          required
+          onKeyUp={event => {
+            search(event, constRealms, "name", setRealms);
+          }}
+        />
+      </form>
+      {realms.length === 0 ? (
+        <img className="loading-gif" src={loading} alt="loading"/>
+      ) : (
+        <ul className="dashboard-home__realm-list">
+          {sortRealms.map(realm => {
+            return (
+              <li
+                className="dashboard-home__realm-items"
+                key={"realm" + realm.id}
+              >
+                <Link to={`/dashboard/details/${realm.id}`}>{realm.name}</Link>
+              </li>
+            );
+          })}
+        </ul>
+      )}
     </div>
   );
 };

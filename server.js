@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const realm = require('./Router/Realms')
-const items = require('./Router/Items')
+const realm = require('./routes/Realms')
+const items = require('./routes/Items')
 const app = express();
 const port = process.env.PORT || 8080;
 

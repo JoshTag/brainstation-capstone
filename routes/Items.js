@@ -3,12 +3,23 @@ const router = Router();
 const db = require("../models/db");
 
 const itemList = (req, res) => {
+  let realm = req.params.realmid;
+
   let sql = `
-  SELECT i.id, i.name_enus, isc.name_Enus
-  FROM tblDBCItem i
-  JOIN tblDBCItemSubClass isc
+  SELECT ihd.item, MAX(ihd.when),
+  r.id, r.name, isc.name_Enus, i.name_enus
+  FROM tblItemHistoryDaily ihd
+  INNER JOIN tblRealm r
+    ON ihd.house = r.house
+  INNER JOIN tblDBCItem i
+    ON i.id = ihd.item
+  INNER JOIN tblDBCItemSubClass isc
     ON isc.class = i.class
-    AND isc.subclass = i.subclass`;
+  WHERE r.locale = "en_US" 
+    AND r.id = ${realm}
+    AND isc.subclass = i.subclass
+    GROUP BY ihd.item
+    ORDER BY ihd.when DESC`;
 
   query = db.query(sql, (err, response) => {
     if (err) throw err;
@@ -24,17 +35,17 @@ const highestPricedItem = (req, res) => {
     ihd.priceavg, r.id, r.name,
     isc.name_Enus
   FROM tblItemHistoryDaily ihd
-  JOIN tblRealm r
+  INNER JOIN tblRealm r
     ON ihd.house = r.house
-  JOIN tblDBCItem i
+  INNER JOIN tblDBCItem i
     ON i.id = ihd.item
-  JOIN tblDBCItemSubClass isc
+  INNER JOIN tblDBCItemSubClass isc
     ON isc.class = i.class
   WHERE r.locale = "en_US" 
   AND r.id = ${realm}
   AND isc.subclass = i.subclass
   GROUP BY ihd.item
-  ORDER BY ihd.priceavg DESC LIMIT 10`;
+  ORDER BY ihd.priceavg DESC LIMIT 10;`;
 
   query = db.query(sql, (err, response) => {
     if (err) throw err;
@@ -50,19 +61,19 @@ const singleItem = (req, res) => {
   SELECT ihd.item, ihd.when, ihd.pricemin, 
   ihd.priceavg, ihd.pricemax, ihd.pricestart, 
   ihd.priceend, ihd.quantityavg, ihd.quantitymax, 
-  r.id, r.name, isc.name_Enus, i.name_enus
+  ihd.quantitymin, r.id, r.name, isc.name_Enus, i.name_enus
   FROM tblItemHistoryDaily ihd
-  JOIN tblRealm r
+  INNER JOIN tblRealm r
     ON ihd.house = r.house
-  JOIN tblDBCItem i
+  INNER JOIN tblDBCItem i
     ON i.id = ihd.item
-  JOIN tblDBCItemSubClass isc
+  INNER JOIN tblDBCItemSubClass isc
     ON isc.class = i.class
   WHERE r.locale = "en_US" 
     AND r.id = ${realm}
     AND isc.subclass = i.subclass
     AND ihd.item = ${itemID}
-    ORDER BY ihd.when DESC LIMIT 7`;
+    ORDER BY ihd.when DESC LIMIT 7;`;
 
   query = db.query(sql, (err, response) => {
     if (err) throw err;
@@ -78,17 +89,17 @@ const topItems = (req, res) => {
     ihd.quantityavg, r.id,
     r.name, isc.name_Enus
   FROM tblItemHistoryDaily ihd
-  JOIN tblRealm r
+  INNER JOIN tblRealm r
     ON ihd.house = r.house
-  JOIN tblDBCItem i
+  INNER JOIN tblDBCItem i
     ON i.id = ihd.item
-  JOIN tblDBCItemSubClass isc
+  INNER JOIN tblDBCItemSubClass isc
     ON isc.class = i.class
   WHERE r.locale = "en_US" 
   AND r.id = ${realm}
   AND isc.subclass = i.subclass
   GROUP BY ihd.item
-  ORDER BY ihd.quantityavg DESC LIMIT 10`;
+  ORDER BY ihd.quantityavg DESC LIMIT 10;`;
 
   query = db.query(sql, (err, response) => {
     if (err) throw err;
@@ -96,7 +107,7 @@ const topItems = (req, res) => {
   });
 };
 
-router.get("/", itemList);
+router.get("/:realmid", itemList);
 router.get("/top/:realmid", topItems);
 router.get("/price/:realmid", highestPricedItem);
 router.get("/itemhistory/:realmid/:itemid", singleItem);

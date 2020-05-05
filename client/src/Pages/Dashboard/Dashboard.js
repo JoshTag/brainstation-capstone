@@ -1,50 +1,54 @@
 import React, { useState, useEffect } from "react";
 import "./Dashboard.scss";
 import { Route } from "react-router-dom";
-import DashboardNav from "../../Components/DashboardNav/DashboardNav";
 import MainView from "../MainView/Mainview";
-import burger from "./../../Assets/Images/burger.svg";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const pingURL = process.env.REACT_APP_BACKEND_SERVER || "http://localhost:8080";
 
 const DashboardPage = () => {
-  const [showNav, setShowNav] = useState(false);
   const [realms, setRealms] = useState([]);
   const [constRealms, setConstRealms] = useState([]);
 
   useEffect(() => {
+    const getRealms = async () => {
+      await axios.get(`${pingURL}/realm`).then(res => {
+        setRealms(res.data);
+        setConstRealms(res.data);
+      });
+    };
+
     getRealms();
   }, []);
 
-  const getRealms = () => {
-    axios.get(`${pingURL}/realm`).then(res => {
-      setRealms(res.data);
-      setConstRealms(res.data);
+  const search = (e, constData, key, setData) => {
+    e.preventDefault();
+    let findItem = constData.filter(item => {
+      return item[key].toLowerCase().includes(e.target.value.toLowerCase());
     });
-	};
-
-  const handleNavClick = () => {
-    setShowNav(!showNav);
-	};
+    setData(findItem);
+  };
 
   return (
     <div className="dashboard">
       <header className="dashboard__header">
-        <h1 className="dashboard__header-text">Warcraft Auctions</h1>
-        <button className="dashboard__nav-btn" onClick={handleNavClick}>
-          <img alt="burger menu icon" src={burger} />
-        </button>
-        {showNav ? <DashboardNav className="sideNav" /> : null}
+        <h1 className="dashboard__header-text">
+          <Link className="header-logo" to="/">Warcraft Auctions</Link>
+        </h1>
       </header>
       <div className="dashboard__body">
-        <div className="dashboard__search">
-          <input placeholder="Search..." />
-          <button>Search</button>
-        </div>
         <Route
           exact
-          render={props => <MainView realms={realms} {...props} />}
+          render={props => (
+            <MainView
+              realms={realms}
+              search={search}
+              constRealms={constRealms}
+              setRealms={setRealms}
+              {...props}
+            />
+          )}
         />
       </div>
     </div>

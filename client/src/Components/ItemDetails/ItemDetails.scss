@@ -1,0 +1,56 @@
+@import "./../../Styles/scss/Master";
+
+.item-details {
+  width: 300px;
+  margin: 0 auto;
+  padding-bottom: 5rem;
+  background-color: $color-grey;
+
+  @include tablet {
+    width: 700px;
+  }
+
+  @include laptop {
+    width: 1000px;
+  }
+
+  &__header {
+    padding-top: 2rem;
+  }
+
+  &__date {
+    @include tablet {
+      padding-top: 4rem;
+    }
+  }
+
+  &__header-flex {
+    @include tablet {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  &__details {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__graph-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 18px;
+    text-decoration: none;
+
+    @include tablet {
+      width: 600px;
+      margin: 2rem auto;
+    }
+    
+    & > a {
+      color: $color-blue;
+    }
+  }
+}

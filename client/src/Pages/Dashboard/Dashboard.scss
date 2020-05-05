@@ -2,6 +2,8 @@
 
 .dashboard {
   position: relative;
+  padding-bottom: 20rem;
+  background-color: $color-grey;
 
   &__header {
     position: fixed;
@@ -36,36 +38,9 @@
     height: 100vh;
     margin-top: 70px;
   }
-  
-  &__search {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding-top: 20px;
+}
 
-    & input {
-      width: 200px;
-      height: 30px;
-      padding-left: 10px;
-      border: 1px solid $color-blue;
-      border-radius: 5px;
-    }
-
-    & button {
-      width: 70px;
-      height: 30px;
-      border-radius: 5px;
-      margin-left: 10px;
-      background-color: $color-blue;
-      color: $color-white;
-      border: 1px solid $color-blue;
-      transition: .3s;
-    }
-    
-    & button:hover {
-      cursor: pointer;
-      color: $color-blue;
-      background-color: $color-white;
-    }
-  }
+.header-logo {
+  text-decoration: none;
+  color: $color-white;
 }
