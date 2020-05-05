@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import loading from "./../../Assets/Logo/loadingsnake.gif"
 
 const DashboardHome = ({ realms, constRealms, setRealms, search }) => {
-  console.log(realms);
 
   const sortRealms = realms.sort((a, b) => {
     return a.name > b.name ? 1 : -1;

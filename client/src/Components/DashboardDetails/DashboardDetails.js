@@ -50,11 +50,9 @@ const DashboardDetails = props => {
         .includes(e.target.item.value.toLowerCase());
     });
 
-    console.log(
-      findItem.sort((a, b) => {
-        return a.name_enus > b.name_enus ? 1 : -1;
-      })
-    );
+    findItem.sort((a, b) => {
+      return a.name_enus > b.name_enus ? 1 : -1;
+    });
 
     setResults(findItem);
   };

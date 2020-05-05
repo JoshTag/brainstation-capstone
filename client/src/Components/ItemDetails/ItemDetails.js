@@ -38,8 +38,6 @@ const ItemDetails = props => {
   //Converts a number to a string with commas in the appropriate place
   const insertComma = x => x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-  console.log(props);
-
   if (loading === false) {
     return null;
   }
