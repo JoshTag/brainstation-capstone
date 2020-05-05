@@ -10,7 +10,7 @@ app.use(express.json());
 
 
 const corsConfig = {
-  origin: ['http://localhost:3000', 'https://warcraftauctions.netlify.com']
+  origin: ['http://localhost:3000', 'https://warcraftauctions.netlify.app']
 }
 app.use(cors(corsConfig));
 
